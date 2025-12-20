@@ -1,0 +1,10 @@
+Please place your logo.png file in this public directory.
+The logo should be named "logo.png" and will be displayed in the navigation bar.
+
+Based on the description:
+- "PPI" text in #0061BF (dark blue)
+- "AACHEN" text in #3482CC (light blue)  
+- Stylized pattern extending from "EN" in the same light blue
+
+The logo will be displayed at height 48px (h-12) in the navigation bar.
+
