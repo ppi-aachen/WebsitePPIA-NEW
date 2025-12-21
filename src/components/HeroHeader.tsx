@@ -10,8 +10,6 @@ interface HeroHeaderProps {
 }
 
 export default function HeroHeader({
-  title,
-  subtitle,
   backgroundImage = '/hero.png',
   height = 'medium',
 }: HeroHeaderProps) {
@@ -56,11 +54,7 @@ export default function HeroHeader({
         }}
       />
 
-      {/* Content Layer */}
-      <div className="relative z-10 px-4">
-        <h1 className="heading-1 mb-2 drop-shadow-lg">{title}</h1>
-        {subtitle && <p className="heading-2 font-light drop-shadow-md">{subtitle}</p>}
-      </div>
+
     </div>
   )
 }
