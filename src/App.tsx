@@ -19,9 +19,12 @@ import WikiAachen from './pages/WikiAachen'
 import PressKit from './pages/PressKit'
 import Impressum from './pages/Impressum'
 
+import ScrollToTop from './components/ScrollToTop'
+
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
