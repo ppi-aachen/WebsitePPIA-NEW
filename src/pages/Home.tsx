@@ -55,14 +55,23 @@ export default function Home() {
       {/* Section 3: Short History (Blue) */}
       <div className="bg-[#0161bf] text-white pt-6 pb-12 px-12 md:px-[48px]">
         <section className="max-w-4xl mx-auto">
-          <h2 className="heading-2 text-white">Short History</h2>
-          <div className="body-text space-y-4 text-white">
-            <p>
-              PPI Aachen didirikan pada 4 Mei 1956 bersamaan dengan berdirinya PPI Jerman. PPI Aachen pertama didirikan oleh Peter Manusama, dengan Liem Keng Kie sebagai bendahara dan Presiden Republik Indonesia ke-3, B. J. Habibie sebagai sekretaris pada masa dia berkuliah di RWTH Aachen. Sidang perwakilan anggota pertama diadakan pada 1957, dimana melalui pemilihan umum, B. J. Habibie terpilih menjadi ketua PPI Aachen. PPI Aachen sendiri didirikan karena ada rasa diperlukannya sebuah organisasi yang bisa mendukung dan membantu pelajar-pelajar Indonesia di Aachen.
-            </p>
-            <p>
-              PPI Aachen was founded on May 4, 1956 at the same time as PPI Jerman (Vereinigung Indonesischer Studenten e.V). PPI Aachen was first founded by Peter Manusama, with Liem Keng Kie as treasurer and the 3rd President of the Republic of Indonesia, B. J. Habibie as secretary while he was studying at RWTH Aachen. The first member representative assembly was held in 1957, where through elections, B. J. Habibie was elected chairman of PPI Aachen. PPI Aachen itself was established because there was a sense of need for an organization that could support and help Indonesian students in Aachen.
-            </p>
+          <div className="flex flex-col md:flex-row gap-8 items-center">
+            <div className="body-text space-y-4 text-white flex-1 md:text-right">
+              <h2 className="heading-2 text-white">Short History</h2>
+              <p>
+                PPI Aachen didirikan pada 4 Mei 1956 bersamaan dengan berdirinya PPI Jerman. PPI Aachen pertama didirikan oleh Peter Manusama, dengan Liem Keng Kie sebagai bendahara dan Presiden Republik Indonesia ke-3, B. J. Habibie sebagai sekretaris pada masa dia berkuliah di RWTH Aachen. Sidang perwakilan anggota pertama diadakan pada 1957, dimana melalui pemilihan umum, B. J. Habibie terpilih menjadi ketua PPI Aachen. PPI Aachen sendiri didirikan karena ada rasa diperlukannya sebuah organisasi yang bisa mendukung dan membantu pelajar-pelajar Indonesia di Aachen.
+              </p>
+              <p>
+                PPI Aachen was founded on May 4, 1956 at the same time as PPI Jerman (Vereinigung Indonesischer Studenten e.V). PPI Aachen was first founded by Peter Manusama, with Liem Keng Kie as treasurer and the 3rd President of the Republic of Indonesia, B. J. Habibie as secretary while he was studying at RWTH Aachen. The first member representative assembly was held in 1957, where through elections, B. J. Habibie was elected chairman of PPI Aachen. PPI Aachen itself was established because there was a sense of need for an organization that could support and help Indonesian students in Aachen.
+              </p>
+            </div>
+            <div className="w-full md:w-1/3 flex-shrink-0">
+              <img
+                src="/src/assets/habibie_history.jpg"
+                alt="B.J. Habibie dan rekan-rekan PPI Aachen 1956"
+                className="rounded-lg shadow-lg w-full h-auto object-cover border-4 border-white/20"
+              />
+            </div>
           </div>
         </section>
       </div>
@@ -70,14 +79,23 @@ export default function Home() {
       {/* Section 4: Our Logo (White) */}
       <div className="bg-white pt-6 pb-12 px-12 md:px-[48px]">
         <section className="max-w-4xl mx-auto">
-          <h2 className="heading-2">Our Logo</h2>
-          <div className="body-text space-y-4">
-            <p>
-              Logo kami terdiri dari 2 garis, dengan 2 jenis warna biru yang berbeda. Warna-warna ini mewakili Universitas RWTH Aachen yang terkenal. Di sisinya, Anda juga dapat menemukan profil samping Charlemagne yang agung, kaisar abad pertengahan yang pernah memerintah sebagian besar Eropa Barat dari Aachen.
-            </p>
-            <p>
-              Our logo consists of 2 lines, adored with 2 different kinds of blue. These colors represent the famous RWTH Aachen University. On its side, you can also find the side profile of the great Charlemagne, a medieval emperor who once ruled much of Western Europe from Aachen.
-            </p>
+          <div className="flex flex-col md:flex-row gap-8 items-center">
+            <div className="w-full md:w-1/3 flex-shrink-0">
+              <img
+                src="/src/assets/logo_description.png"
+                alt="Logo PPI Aachen"
+                className="rounded-lg shadow-lg w-full h-auto object-cover"
+              />
+            </div>
+            <div className="body-text space-y-4 flex-1">
+              <h2 className="heading-2">Our Logo</h2>
+              <p>
+                Logo kami terdiri dari 2 garis, dengan 2 jenis warna biru yang berbeda. Warna-warna ini mewakili Universitas RWTH Aachen yang terkenal. Di sisinya, Anda juga dapat menemukan profil samping Charlemagne yang agung, kaisar abad pertengahan yang pernah memerintah sebagian besar Eropa Barat dari Aachen.
+              </p>
+              <p>
+                Our logo consists of 2 lines, adored with 2 different kinds of blue. These colors represent the famous RWTH Aachen University. On its side, you can also find the side profile of the great Charlemagne, a medieval emperor who once ruled much of Western Europe from Aachen.
+              </p>
+            </div>
           </div>
         </section>
       </div>
@@ -98,9 +116,6 @@ export default function Home() {
 
           <div className="body-text space-y-4 text-white">
             <p>
-              <strong>Wiki Aachen für Dummies</strong>
-            </p>
-            <p>
               Buku panduan yang dibuat khusus untuk pelajar Indonesia yang baru saja tiba di Aachen<br />
               A guide book specially made for Indonesian students that have just arrived in Aachen
             </p>
@@ -118,16 +133,16 @@ export default function Home() {
         <section className="max-w-4xl mx-auto">
           <h2 className="heading-2">Peta Wilayah Kerja</h2>
           <div className="body-text space-y-4">
-            <p>
-              PPI Aachen melayani pelajar Indonesia di wilayah Aachen dan sekitarnya.
-            </p>
-            <p>
-              <em>PPI Aachen serves Indonesian students in the Aachen area and its surroundings.</em>
-            </p>
+            <div className="mt-8 flex justify-center">
+              <img
+                src="/src/assets/peta_wilayah.jpg"
+                alt="Peta Wilayah Kerja PPI Aachen"
+                className="rounded-lg shadow-md max-w-lg h-auto"
+              />
+            </div>
           </div>
         </section>
       </div>
     </div>
   )
 }
-

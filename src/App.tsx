@@ -15,7 +15,7 @@ import KontakEmail from './pages/KontakEmail'
 import Linktree from './pages/Linktree'
 import Acop2025 from './pages/Acop2025'
 import WikiAachen from './pages/WikiAachen'
-import Funmatch from './pages/Funmatch'
+
 import PressKit from './pages/PressKit'
 import Impressum from './pages/Impressum'
 
@@ -39,7 +39,7 @@ function App() {
           <Route path="/linktree" element={<Linktree />} />
           <Route path="/acop-2025" element={<Acop2025 />} />
           <Route path="/wiki-aachen" element={<WikiAachen />} />
-          <Route path="/funmatch" element={<Funmatch />} />
+
           <Route path="/press-kit" element={<PressKit />} />
           <Route path="/impressum" element={<Impressum />} />
         </Routes>

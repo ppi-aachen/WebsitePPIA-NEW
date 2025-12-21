@@ -37,7 +37,7 @@ const navigationItems: NavItem[] = [
       { label: 'Linktree', path: '/linktree' },
       { label: 'ACOP 2025', path: '/acop-2025' },
       { label: 'Wiki Aachen für Dummies', path: '/wiki-aachen' },
-      { label: 'Funmatch', path: '/funmatch' },
+
       { label: 'Press Kit', path: '/press-kit' },
     ],
   },
@@ -125,11 +125,20 @@ export default function SideNavigation({ currentPath }: SideNavigationProps) {
                         text-white text-[15pt] font-light
                         transition-colors duration-200
                         hover:text-primary-light
+                        flex items-center gap-1
                         ${isActive(item.path) ? 'text-primary-light' : ''}
                       `}
                     >
                       {item.label}
-                      <span className="ml-1">▼</span>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className={`w-4 h-4 transition-transform duration-200 ${hoveredGroup === item.path ? 'rotate-180' : ''}`}
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
                     </button>
                     {hoveredGroup === item.path && (
                       <div
@@ -182,11 +191,12 @@ export default function SideNavigation({ currentPath }: SideNavigationProps) {
           h-screen
           z-40
           transition-transform duration-300 ease-in-out
+          overflow-y-auto overflow-x-hidden
           ${isOpen ? 'translate-x-0' : '-translate-x-full'}
         `}
         role="navigation"
       >
-        <div className="px-2">
+        <div className="px-2 pb-20">
           {navigationItems.map((item) => (
             <div key={item.path}>
               {item.children ? (
@@ -198,15 +208,29 @@ export default function SideNavigation({ currentPath }: SideNavigationProps) {
                       text-white text-[15pt] font-light
                       transition-colors duration-200
                       hover:text-white
+                      flex items-center justify-between
                       ${isActive(item.path) ? 'text-primary-light' : ''}
                     `}
                   >
                     {item.label}
-                    <span className="float-right">
-                      {expandedGroups.has(item.path) ? '−' : '+'}
+                    <span className="flex-shrink-0 ml-2">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className={`w-5 h-5 transition-transform duration-300 ${expandedGroups.has(item.path) ? 'rotate-180' : ''}`}
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
                     </span>
                   </button>
-                  {expandedGroups.has(item.path) && (
+                  <div
+                    className={`
+                      overflow-hidden transition-all duration-300 ease-in-out
+                      ${expandedGroups.has(item.path) ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}
+                    `}
+                  >
                     <div className="pl-4">
                       {item.children.map((child) => (
                         <Link
@@ -225,7 +249,7 @@ export default function SideNavigation({ currentPath }: SideNavigationProps) {
                         </Link>
                       ))}
                     </div>
-                  )}
+                  </div>
                 </>
               ) : (
                 <Link

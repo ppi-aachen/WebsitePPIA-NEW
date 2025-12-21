@@ -9,7 +9,7 @@ interface CarouselProps {
 export default function Carousel({
     slides,
     autoSlide = true,
-    autoSlideInterval = 3000,
+    autoSlideInterval = 5000,
 }: CarouselProps) {
     const [curr, setCurr] = useState(0)
 
