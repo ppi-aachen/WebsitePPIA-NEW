@@ -4,6 +4,14 @@ import { useState } from 'react'
 export default function PressKit() {
   const [selectedLogo, setSelectedLogo] = useState<{ name: string; file: string } | null>(null);
 
+  // Dynamically import all images from the press-kit assets folder
+  const pressKitImages = import.meta.glob('../assets/press-kit/*.png', { eager: true })
+
+  const getImageUrl = (filename: string) => {
+    const path = `../assets/press-kit/${filename}`
+    return (pressKitImages[path] as { default: string })?.default
+  }
+
   const logos = [
     { name: "PPI Aachen Logo - RWTH Colour Scheme", file: "logo-rwth-colour.png" },
     { name: "PPI Aachen Logo - FH Colour Scheme", file: "logo-fh-colour.png" },
@@ -51,7 +59,7 @@ export default function PressKit() {
                 {/* Image Placeholder */}
                 <div className="w-full h-full flex items-center justify-center text-gray-300 relative z-10">
                   <img
-                    src={`/src/assets/press-kit/${logo.file}`}
+                    src={getImageUrl(logo.file)}
                     alt={logo.name}
                     className="max-w-full max-h-full object-contain"
                     onError={(e) => {
@@ -96,7 +104,7 @@ export default function PressKit() {
 
               <div className="bg-gray-300 rounded-lg overflow-hidden flex items-center justify-center p-4 sm:p-12 min-h-[300px]">
                 <img
-                  src={`/src/assets/press-kit/${selectedLogo.file}`}
+                  src={getImageUrl(selectedLogo.file)}
                   alt={selectedLogo.name}
                   className="max-w-full max-h-[70vh] object-contain shadow-lg"
                   onError={(e) => {

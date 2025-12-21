@@ -2,6 +2,10 @@ import HeroHeader from '../components/HeroHeader'
 import Carousel from '../components/Carousel'
 import { useState } from 'react'
 
+import habibieHistory from '../assets/habibie_history.jpg'
+import logoDescription from '../assets/logo_description.png'
+import petaWilayah from '../assets/peta_wilayah.jpg'
+
 export default function Home() {
   const [isPdfOpen, setIsPdfOpen] = useState(false)
   // Dynamically import all images from the carousel assets folder
@@ -69,7 +73,7 @@ export default function Home() {
             </div>
             <div className="w-full md:w-1/3 flex-shrink-0">
               <img
-                src="/src/assets/habibie_history.jpg"
+                src={habibieHistory}
                 alt="B.J. Habibie dan rekan-rekan PPI Aachen 1956"
                 className="rounded-lg shadow-lg w-full h-auto object-cover border-4 border-white/20"
               />
@@ -84,7 +88,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row gap-8 items-center">
             <div className="w-full md:w-1/3 flex-shrink-0">
               <img
-                src="/src/assets/logo_description.png"
+                src={logoDescription}
                 alt="Logo PPI Aachen"
                 className="rounded-lg shadow-lg w-full h-auto object-cover"
               />
@@ -153,7 +157,7 @@ export default function Home() {
           <div className="body-text space-y-4">
             <div className="mt-8 flex justify-center">
               <img
-                src="/src/assets/peta_wilayah.jpg"
+                src={petaWilayah}
                 alt="Peta Wilayah Kerja PPI Aachen"
                 className="rounded-lg shadow-md max-w-lg h-auto"
               />
