@@ -1,7 +1,9 @@
 import HeroHeader from '../components/HeroHeader'
 import Carousel from '../components/Carousel'
+import { useState } from 'react'
 
 export default function Home() {
+  const [isPdfOpen, setIsPdfOpen] = useState(false)
   // Dynamically import all images from the carousel assets folder
   const carouselImages = import.meta.glob('../assets/carousel/*.png', { eager: true })
 
@@ -106,12 +108,28 @@ export default function Home() {
           <h2 className="heading-2 text-white">Aachen für Dummies</h2>
 
           <div className="my-8 flex justify-center">
-            <iframe
-              src="https://drive.google.com/file/d/1JtwUe0FkGHvXqIJbFa0i6iVw79eA-Cu4/preview"
-              className="w-full max-w-2xl h-[800px] rounded-lg shadow-lg border-0"
-              allow="autoplay"
-              title="Aachen für Dummies Preview"
-            ></iframe>
+            <div
+              className="relative w-full max-w-2xl h-[800px] rounded-lg shadow-lg border-0 overflow-hidden cursor-pointer group"
+              onClick={() => setIsPdfOpen(true)}
+            >
+              <iframe
+                src="https://drive.google.com/file/d/1JtwUe0FkGHvXqIJbFa0i6iVw79eA-Cu4/preview"
+                className="w-full h-full pointer-events-none"
+                allow="autoplay"
+                title="Aachen für Dummies Preview"
+              ></iframe>
+
+              {/* Hover Overlay */}
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
+                <div className="bg-white/90 text-[#0161bf] px-6 py-3 rounded-full opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 font-bold shadow-lg flex items-center gap-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                  </svg>
+                  Click to Read
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="body-text space-y-4 text-white">
@@ -143,6 +161,56 @@ export default function Home() {
           </div>
         </section>
       </div>
+
+      {/* PDF Modal */}
+      {isPdfOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm transition-opacity"
+          onClick={() => setIsPdfOpen(false)}
+        >
+          <div
+            className="bg-white rounded-xl shadow-2xl w-full max-w-5xl h-[85vh] relative flex flex-col animate-in fade-in zoom-in duration-200"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Header */}
+            <div className="flex items-center justify-between p-4 border-b border-gray-100">
+              <h3 className="font-bold text-gray-900 text-lg">Aachen für Dummies</h3>
+              <div className="flex items-center gap-2">
+                <a
+                  href="https://drive.google.com/file/d/1JtwUe0FkGHvXqIJbFa0i6iVw79eA-Cu4/view"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 text-gray-500 hover:text-[#0161bf] hover:bg-blue-50 rounded-full transition-colors"
+                  title="Open in new tab"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+                <button
+                  onClick={() => setIsPdfOpen(false)}
+                  className="p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-full transition-colors"
+                  aria-label="Close"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            {/* Content */}
+            <div className="flex-grow bg-gray-100 p-2 rounded-b-xl overflow-hidden">
+              <iframe
+                src="https://drive.google.com/file/d/1JtwUe0FkGHvXqIJbFa0i6iVw79eA-Cu4/preview"
+                className="w-full h-full rounded-lg bg-white border-0"
+                allow="autoplay"
+                title="Aachen für Dummies Fullscreen"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
