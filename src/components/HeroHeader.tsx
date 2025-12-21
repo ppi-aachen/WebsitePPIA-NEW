@@ -36,7 +36,7 @@ export default function HeroHeader({
   return (
     <div
       // Added relative and overflow-hidden to handle the inner absolute image
-      className={`${heightClasses[height]} relative overflow-hidden text-white flex flex-col justify-center`}
+      className={`${heightClasses[height]} relative overflow-hidden text-white flex flex-col justify-center items-center text-center`}
     >
       {/* Parallax Background Layer */}
       <div
@@ -55,6 +55,12 @@ export default function HeroHeader({
           zIndex: 0,
         }}
       />
+
+      {/* Content Layer */}
+      <div className="relative z-10 px-4">
+        <h1 className="heading-1 mb-2 drop-shadow-lg">{title}</h1>
+        {subtitle && <p className="heading-2 font-light drop-shadow-md">{subtitle}</p>}
+      </div>
     </div>
   )
 }

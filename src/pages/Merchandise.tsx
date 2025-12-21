@@ -1,4 +1,4 @@
-import HeroHeader from '../components/HeroHeader'
+
 
 export default function Merchandise() {
   return (
