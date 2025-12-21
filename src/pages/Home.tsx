@@ -162,6 +162,12 @@ export default function Home() {
                 className="rounded-lg shadow-md w-full max-w-lg h-auto"
               />
             </div>
+            <div className="body-text space-y-6 text-lg leading-relaxed text-gray-700 text-center">
+              <p>
+                Peta wilayah kerja PPI Aachen, daerah dimana PPI Aachen beroperasi di Jerman. <br />
+                PPI Aachen operates in the following regions of Germany.
+              </p>
+            </div>
           </div>
         </section>
       </div>
