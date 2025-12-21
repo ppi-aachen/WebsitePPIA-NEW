@@ -17,6 +17,7 @@ import Acop2025 from './pages/Acop2025'
 import WikiAachen from './pages/WikiAachen'
 import Funmatch from './pages/Funmatch'
 import PressKit from './pages/PressKit'
+import Impressum from './pages/Impressum'
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
           <Route path="/wiki-aachen" element={<WikiAachen />} />
           <Route path="/funmatch" element={<Funmatch />} />
           <Route path="/press-kit" element={<PressKit />} />
+          <Route path="/impressum" element={<Impressum />} />
         </Routes>
       </Layout>
     </Router>

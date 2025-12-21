@@ -1,16 +1,70 @@
 import HeroHeader from '../components/HeroHeader'
 
 export default function PressKit() {
+  const logos = [
+    { name: "PPI Aachen Logo - RWTH Colour Scheme", file: "logo-rwth-colour.png" },
+    { name: "PPI Aachen Logo - FH Colour Scheme", file: "logo-fh-colour.png" },
+    { name: "PPI Aachen Logo - FH Colour Scheme 2", file: "logo-fh-colour-2.png" },
+    { name: "PPI Aachen Logo - White", file: "logo-white.png" },
+    { name: "PPI Aachen Logo - Black", file: "logo-black.png" },
+    { name: "PPI Aachen Logo - New Grey", file: "logo-new-grey.png" },
+    { name: "PPI Aachen Logo - Black-Grey", file: "logo-black-grey.png" },
+    { name: "PPI Aachen Logo - Long Form", file: "logo-long-form.png" }
+  ];
+
   return (
     <div>
-      <HeroHeader title="Press Kit" />
-      <div className="px-12 md:px-[48px] py-12">
-        <section className="mb-12">
-          <h2 className="heading-2">Press Kit</h2>
-          <p className="body-text">
-            Media resources, logos, and press materials for PPI Aachen.
-          </p>
-        </section>
+      <HeroHeader title="Press Kit" subtitle="Resources & Assets" />
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+
+        {/* Header Section */}
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-6 bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+          <div>
+            <h2 className="heading-3 text-[#002F6C] mb-2">PPI Aachen Logos</h2>
+            <p className="text-gray-600">8 Images (533 KB)</p>
+          </div>
+          <a
+            href="https://drive.google.com/file/d/1WkgwhmRnFY6-3A_xX3hh7WB2-uvhZfYq/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-[#0161bf] text-white font-bold rounded-lg hover:bg-[#004e9a] transition-colors shadow-md hover:shadow-lg whitespace-nowrap"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+            Download all (.zip)
+          </a>
+        </div>
+
+        {/* Logo Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {logos.map((logo, idx) => (
+            <div key={idx} className="group bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-all">
+              <div className="aspect-square bg-gray-50 flex items-center justify-center p-8 border-b border-gray-100 relative">
+                {/* Image Placeholder */}
+                <div className="w-full h-full flex items-center justify-center text-gray-300">
+                  <img
+                    src={`/src/assets/press-kit/${logo.file}`}
+                    alt={logo.name}
+                    className="max-w-full max-h-full object-contain"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = 'https://placehold.co/400x400/f3f4f6/a1a1aa?text=Logo+Placeholder';
+                    }}
+                  />
+                </div>
+                {/* Overlay on hover */}
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors cursor-pointer flex items-center justify-center opacity-0 group-hover:opacity-100">
+                  <span className="bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-semibold text-gray-700 shadow-sm">Preview</span>
+                </div>
+              </div>
+              <div className="p-4">
+                <h3 className="text-sm font-medium text-gray-900 group-hover:text-[#0161bf] transition-colors line-clamp-2" title={logo.name}>
+                  {logo.name}
+                </h3>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   )

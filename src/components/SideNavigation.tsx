@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 interface NavItem {
@@ -47,7 +47,6 @@ export default function SideNavigation({ currentPath }: SideNavigationProps) {
   const [isOpen, setIsOpen] = useState(false)
   const [expandedGroups, setExpandedGroups] = useState<Set<string>>(new Set())
   const [hoveredGroup, setHoveredGroup] = useState<string | null>(null)
-  const dropdownRef = useRef<HTMLDivElement>(null)
 
   const toggleGroup = (path: string) => {
     const newExpanded = new Set(expandedGroups)
@@ -65,20 +64,6 @@ export default function SideNavigation({ currentPath }: SideNavigationProps) {
     }
     return currentPath.startsWith(path)
   }
-
-  // Close dropdown when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setHoveredGroup(null)
-      }
-    }
-
-    document.addEventListener('mousedown', handleClickOutside)
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
-  }, [])
 
   return (
     <>
@@ -105,9 +90,9 @@ export default function SideNavigation({ currentPath }: SideNavigationProps) {
         <div className="w-full flex items-center justify-between px-8">
           <div className="flex items-center flex-shrink-0">
             <Link to="/" className="flex items-center h-full py-2">
-              <img 
-                src="/logo.png" 
-                alt="PPI Aachen" 
+              <img
+                src="/logo.png"
+                alt="PPI Aachen"
                 className="h-12 object-contain"
                 onError={(e) => {
                   // Fallback to text if image doesn't load
@@ -126,12 +111,15 @@ export default function SideNavigation({ currentPath }: SideNavigationProps) {
           </div>
           <div className="flex items-center space-x-1 flex-shrink-0">
             {navigationItems.map((item) => (
-              <div key={item.path} className="relative" ref={item.children ? dropdownRef : null}>
+              <div
+                key={item.path}
+                className="relative"
+                onMouseEnter={() => item.children && setHoveredGroup(item.path)}
+                onMouseLeave={() => item.children && setHoveredGroup(null)}
+              >
                 {item.children ? (
                   <>
                     <button
-                      onMouseEnter={() => setHoveredGroup(item.path)}
-                      onMouseLeave={() => setHoveredGroup(null)}
                       className={`
                         px-4 py-3
                         text-white text-[15pt] font-light
@@ -146,8 +134,6 @@ export default function SideNavigation({ currentPath }: SideNavigationProps) {
                     {hoveredGroup === item.path && (
                       <div
                         className="absolute top-full left-0 bg-dark shadow-lg min-w-[200px] py-2"
-                        onMouseEnter={() => setHoveredGroup(item.path)}
-                        onMouseLeave={() => setHoveredGroup(null)}
                       >
                         {item.children.map((child) => (
                           <Link

@@ -1,3 +1,7 @@
+'use client'
+
+import { useState, useEffect } from 'react'
+
 interface HeroHeaderProps {
   title: string
   subtitle?: string
@@ -8,34 +12,49 @@ interface HeroHeaderProps {
 export default function HeroHeader({
   title,
   subtitle,
-  backgroundImage,
+  backgroundImage = '/hero.png',
   height = 'medium',
 }: HeroHeaderProps) {
+  const [offset, setOffset] = useState(0)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setOffset(window.scrollY)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   const heightClasses = {
     small: 'h-[180px] pt-[60px] pb-8',
-    medium: 'hero-header',
-    large: 'h-[520px] pt-[60px] pb-[60px]',
+    // You can also make medium responsive:
+    medium: 'h-[400px] xl:h-[550px] pt-[60px] pb-[60px]',
+    // UPDATED: Standard is 520px, but on XL screens (1280px+) it becomes 750px
+    large: 'h-[520px] xl:h-[750px] pt-[60px] pb-[60px]',
   }
 
   return (
     <div
-      className={`${heightClasses[height]} text-white relative`}
-      style={
-        backgroundImage
-          ? {
-              backgroundImage: `url(${backgroundImage})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            }
-          : {}
-      }
+      // Added relative and overflow-hidden to handle the inner absolute image
+      className={`${heightClasses[height]} relative overflow-hidden text-white flex flex-col justify-center`}
     >
-      <div className="absolute inset-0 bg-dark opacity-40" />
-      <div className="relative z-10 px-12 md:px-[48px]">
-        <h1 className="heading-1 text-white mb-6">{title}</h1>
-        {subtitle && <p className="text-white text-[15pt] font-light">{subtitle}</p>}
-      </div>
+      {/* Parallax Background Layer */}
+      <div
+        className="absolute w-full"
+        style={{
+          backgroundImage: `url(${backgroundImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          // PARALLAX LOGIC:
+          transform: `translateY(${offset * 0.5}px)`,
+          // BUFFER FIX: Make image 20% taller than container and pull it up
+          // This ensures that when the container grows on wide screens, 
+          // or when parallax moves the image, we don't see white gaps.
+          height: '120%',
+          top: '-10%',
+          zIndex: 0,
+        }}
+      />
     </div>
   )
 }
-

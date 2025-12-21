@@ -13,11 +13,17 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <div className="flex flex-col min-h-screen">
       <SideNavigation currentPath={location.pathname} />
-      <main className="flex-1 min-w-0 desktop:mt-[64px]">
+
+      {/* 1. flex-1: Ensures this section takes up remaining height 
+        2. w-full: Ensures the background spans the full width
+      */}
+      <main className="flex-1 w-full min-w-0 desktop:mt-[64px]">
+
+        {/* Render children directly - pages manage their own layout containers */}
         {children}
+
       </main>
       <Footer />
     </div>
   )
 }
-

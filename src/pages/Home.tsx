@@ -1,14 +1,45 @@
 import HeroHeader from '../components/HeroHeader'
+import Carousel from '../components/Carousel'
 
 export default function Home() {
+  // Dynamically import all images from the carousel assets folder
+  const carouselImages = import.meta.glob('../assets/carousel/*.png', { eager: true })
+
+  // Sort keys to ensure correct order based on naming convention (e.g., 1.png, 2.png)
+  const slides = Object.keys(carouselImages)
+    .sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }))
+    .map(path => (carouselImages[path] as { default: string }).default)
+
   return (
     <div>
       <HeroHeader
         title="PPI Aachen"
         subtitle="Indonesian Students Association in Aachen"
       />
-      <div className="px-12 md:px-[48px] py-12">
-        <section className="mb-12">
+
+      {/* Section 1: Carousel + Linktree (Blue) */}
+      <div className="bg-[#0161bf] pt-12 pb-12">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <Carousel slides={slides} />
+          <div className="flex justify-center mt-12 mb-4">
+            <a
+              href="https://linktr.ee/aachenppi"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white hover:bg-gray-100 text-[#002F6C] font-bold py-3 px-8 rounded-full shadow-lg transition-all transform hover:scale-105 flex items-center gap-2"
+            >
+              <span>Visit our Linktree</span>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Section 2: About Us (White) */}
+      <div className="bg-white pt-6 pb-12 px-12 md:px-[48px]">
+        <section className="max-w-4xl mx-auto">
           <h2 className="heading-2">About Us</h2>
           <div className="body-text space-y-4">
             <p>
@@ -19,10 +50,13 @@ export default function Home() {
             </p>
           </div>
         </section>
+      </div>
 
-        <section className="mb-12">
-          <h2 className="heading-2">Short History</h2>
-          <div className="body-text space-y-4">
+      {/* Section 3: Short History (Blue) */}
+      <div className="bg-[#0161bf] text-white pt-6 pb-12 px-12 md:px-[48px]">
+        <section className="max-w-4xl mx-auto">
+          <h2 className="heading-2 text-white">Short History</h2>
+          <div className="body-text space-y-4 text-white">
             <p>
               PPI Aachen didirikan pada 4 Mei 1956 bersamaan dengan berdirinya PPI Jerman. PPI Aachen pertama didirikan oleh Peter Manusama, dengan Liem Keng Kie sebagai bendahara dan Presiden Republik Indonesia ke-3, B. J. Habibie sebagai sekretaris pada masa dia berkuliah di RWTH Aachen. Sidang perwakilan anggota pertama diadakan pada 1957, dimana melalui pemilihan umum, B. J. Habibie terpilih menjadi ketua PPI Aachen. PPI Aachen sendiri didirikan karena ada rasa diperlukannya sebuah organisasi yang bisa mendukung dan membantu pelajar-pelajar Indonesia di Aachen.
             </p>
@@ -31,8 +65,11 @@ export default function Home() {
             </p>
           </div>
         </section>
+      </div>
 
-        <section className="mb-12">
+      {/* Section 4: Our Logo (White) */}
+      <div className="bg-white pt-6 pb-12 px-12 md:px-[48px]">
+        <section className="max-w-4xl mx-auto">
           <h2 className="heading-2">Our Logo</h2>
           <div className="body-text space-y-4">
             <p>
@@ -43,10 +80,23 @@ export default function Home() {
             </p>
           </div>
         </section>
+      </div>
 
-        <section className="mb-12">
-          <h2 className="heading-2">Aachen für Dummies</h2>
-          <div className="body-text space-y-4">
+      {/* Section 5: Aachen für Dummies (Blue) */}
+      <div className="bg-[#0161bf] text-white pt-6 pb-12 px-12 md:px-[48px]">
+        <section className="max-w-4xl mx-auto">
+          <h2 className="heading-2 text-white">Aachen für Dummies</h2>
+
+          <div className="my-8 flex justify-center">
+            <iframe
+              src="https://drive.google.com/file/d/1JtwUe0FkGHvXqIJbFa0i6iVw79eA-Cu4/preview"
+              className="w-full max-w-2xl h-[800px] rounded-lg shadow-lg border-0"
+              allow="autoplay"
+              title="Aachen für Dummies Preview"
+            ></iframe>
+          </div>
+
+          <div className="body-text space-y-4 text-white">
             <p>
               <strong>Wiki Aachen für Dummies</strong>
             </p>
@@ -55,14 +105,17 @@ export default function Home() {
               A guide book specially made for Indonesian students that have just arrived in Aachen
             </p>
             <div className="mt-4">
-              <a href="/wiki-aachen" className="btn-primary">
+              <a href="/wiki-aachen" className="btn-primary bg-white text-[#002F6C] hover:bg-gray-100">
                 View Guide
               </a>
             </div>
           </div>
         </section>
+      </div>
 
-        <section className="mb-12">
+      {/* Section 6: Peta Wilayah Kerja (White) */}
+      <div className="bg-white pt-6 pb-12 px-12 md:px-[48px]">
+        <section className="max-w-4xl mx-auto">
           <h2 className="heading-2">Peta Wilayah Kerja</h2>
           <div className="body-text space-y-4">
             <p>
@@ -72,36 +125,6 @@ export default function Home() {
               <em>PPI Aachen serves Indonesian students in the Aachen area and its surroundings.</em>
             </p>
           </div>
-        </section>
-
-        <section className="mb-12">
-          <h2 className="heading-2">Contact</h2>
-          <div className="body-text space-y-2">
-            <p>
-              <strong>Email:</strong> <a href="mailto:info@ppiaachen.de" className="text-primary hover:underline">info@ppiaachen.de</a>
-            </p>
-            <p>
-              <strong>Phone/WhatsApp:</strong> <a href="tel:+4915679027862" className="text-primary hover:underline">+49 15679 027862</a>
-            </p>
-            <p>
-              <strong>Address:</strong> An der Schanz 1, 52064 Aachen, Germany
-            </p>
-            <div className="mt-4 flex gap-4">
-              <a href="https://www.instagram.com/ppiaachen" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Instagram</a>
-              <a href="https://www.facebook.com/ppiaachen" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Facebook</a>
-              <a href="https://www.linkedin.com/company/ppiaachen" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">LinkedIn</a>
-              <a href="https://www.youtube.com/@ppiaachen" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">YouTube</a>
-              <a href="https://www.tiktok.com/@ppiaachen" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">TikTok</a>
-            </div>
-          </div>
-        </section>
-
-        <section className="mb-12 bg-light-gray p-6 rounded">
-          <p className="body-text text-center">
-            <strong>PPI Aachen</strong><br />
-            Mendukung dan membantu pelajar Indonesia di Aachen sejak 1956.<br />
-            <em>Supporting and helping Indonesian students in Aachen since 1956.</em>
-          </p>
         </section>
       </div>
     </div>
