@@ -9,7 +9,7 @@ export default function Spa() {
 
           <h2 className="text-[#002F6C] font-bold border-b pb-2 mb-6">Tentang Sidang Perwakilan Anggota</h2>
           <p>
-            Sidang Perwakilan Anggota (SPA) adalah forum tertinggi di PPI Aachen yang memiliki kekuatan hukum untuk menjalankan berbagai fungsi penting, seperti memilih Ketua dan anggota BPKK, mengubah AD/ART jika diperlukan, menerima atau menolak laporan pertanggungjawaban Badan Eksekutif dan BPKK, menetapkan anggota kehormatan, serta mengesahkan garis besar program kerja PPI Aachen. Keputusan yang diambil dalam SPA bersifat mengikat bagi seluruh anggota dan badan perlengkapan perhimpunan. Seluruh anggota PPI Aachen berhak menjadi peserta SPA.
+            Sidang Perwakilan Anggota (SPA) adalah forum tertinggi di PPI Aachen yang memiliki kekuatan hukum untuk menjalankan berbagai fungsi penting, seperti memilih Ketua dan anggota BPKK, mengubah AD/ART jika diperlukan, menerima atau menolak laporan pertanggungjawaban Badan Eksekutif dan BPKK, menetapkan anggota kehormatan, serta mengesahkan garis besar program kerja PPI Aachen. Keputusan yang diambil dalam SPA bersifat mengikat bagi seluruh anggota dan badan perlengkapan perhimpunan. Seluruh anggota PPI Aachen berhak menjadi peserta SPA, tetapi hanya anggota penuh PPI Aachen yang diperbolehkan berpartisipasi dalam pemilihan (AD Pasal 8.2).
           </p>
 
           <h2 className="text-[#002F6C] font-bold border-b pb-2 mt-12 mb-6">Tata Tertib</h2>
@@ -25,7 +25,7 @@ export default function Spa() {
 
           <h2 className="text-[#002F6C] font-bold border-b pb-2 mt-12 mb-6">Hak & Kewajiban Peserta</h2>
 
-          <h3 className="text-gray-900 font-bold mt-8 mb-2">Hak Peserta</h3>
+          <h3 className="text-gray-900 font-bold mt-8 mb-2">Hak Peserta (Anggota Penuh)</h3>
           <ol className="list-decimal pl-5 space-y-1">
             <li><strong>Hak bicara:</strong> adalah untuk bertanya mengeluarkan pendapat, dan mengajukan usulan kepada presidium sidang baik secara lisan.</li>
             <li><strong>Hak suara:</strong> adalah hak untuk ikut mengambil bagian dalam pengambilan keputusan.</li>
