@@ -24,8 +24,8 @@ export default function Home() {
       />
 
       {/* Section 1: Carousel + Linktree (Blue) */}
-      <div className="bg-[#0161bf] pt-12 pb-12">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="bg-[#0161bf] pt-12 pb-12 px-12 md:px-[48px]">
+        <div className="mx-auto max-w-7xl">
           <Carousel slides={slides} />
           <div className="flex justify-center mt-12 mb-4">
             <a
@@ -45,9 +45,9 @@ export default function Home() {
 
       {/* Section 2: About Us (White) */}
       <div className="bg-white pt-6 pb-12 px-12 md:px-[48px]">
-        <section className="max-w-4xl mx-auto">
+        <section className="max-w-7xl mx-auto">
           <h2 className="heading-2">About Us</h2>
-          <div className="body-text space-y-4">
+          <div className="body-text space-y-6 text-lg text-gray-700 leading-relaxed">
             <p>
               <strong>Perhimpunan Pelajar Indonesia di Aachen</strong> atau PPI Aachen adalah sebuah perkumpulan pelajar Indonesia yang bersifat politik non partais, ilmiah, sosial, dan independen yang berpusat di Aachen. PPI Aachen memiliki misi untuk menghimpun, melindungi, dan membela kepentingan para anggotanya dalam rangka meningkatkan kualitas diri dan mengoptimalkan seluruh potensi yang dimiliki, serta mewujudkan masyarakat Indonesia yang lebih adil dan sejahtera. Menjadi bermanfaat bagi Indonesia dan Jerman adalah visi utama kami.
             </p>
@@ -60,9 +60,9 @@ export default function Home() {
 
       {/* Section 3: Short History (Blue) */}
       <div className="bg-[#0161bf] text-white pt-6 pb-12 px-12 md:px-[48px]">
-        <section className="max-w-4xl mx-auto">
+        <section className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row gap-8 items-center">
-            <div className="body-text space-y-4 text-white flex-1 md:text-right">
+            <div className="body-text space-y-6 text-lg leading-relaxed text-white flex-1 md:text-right">
               <h2 className="heading-2 text-white">Short History</h2>
               <p>
                 PPI Aachen didirikan pada 4 Mei 1956 bersamaan dengan berdirinya PPI Jerman. PPI Aachen pertama didirikan oleh Peter Manusama, dengan Liem Keng Kie sebagai bendahara dan Presiden Republik Indonesia ke-3, B. J. Habibie sebagai sekretaris pada masa dia berkuliah di RWTH Aachen. Sidang perwakilan anggota pertama diadakan pada 1957, dimana melalui pemilihan umum, B. J. Habibie terpilih menjadi ketua PPI Aachen. PPI Aachen sendiri didirikan karena ada rasa diperlukannya sebuah organisasi yang bisa mendukung dan membantu pelajar-pelajar Indonesia di Aachen.
@@ -84,7 +84,7 @@ export default function Home() {
 
       {/* Section 4: Our Logo (White) */}
       <div className="bg-white pt-6 pb-12 px-12 md:px-[48px]">
-        <section className="max-w-4xl mx-auto">
+        <section className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row gap-8 items-center">
             <div className="w-full md:w-1/3 flex-shrink-0">
               <img
@@ -93,7 +93,7 @@ export default function Home() {
                 className="rounded-lg shadow-lg w-full h-auto object-cover"
               />
             </div>
-            <div className="body-text space-y-4 flex-1">
+            <div className="body-text space-y-6 text-lg text-gray-700 leading-relaxed flex-1">
               <h2 className="heading-2">Our Logo</h2>
               <p>
                 Logo kami terdiri dari 2 garis, dengan 2 jenis warna biru yang berbeda. Warna-warna ini mewakili Universitas RWTH Aachen yang terkenal. Di sisinya, Anda juga dapat menemukan profil samping Charlemagne yang agung, kaisar abad pertengahan yang pernah memerintah sebagian besar Eropa Barat dari Aachen.
@@ -108,12 +108,12 @@ export default function Home() {
 
       {/* Section 5: Aachen für Dummies (Blue) */}
       <div className="bg-[#0161bf] text-white pt-6 pb-12 px-12 md:px-[48px]">
-        <section className="max-w-4xl mx-auto">
-          <h2 className="heading-2 text-white">Aachen für Dummies</h2>
+        <section className="max-w-7xl mx-auto">
+          <h2 className="heading-2 text-white text-center">Aachen für Dummies</h2>
 
           <div className="my-8 flex justify-center">
             <div
-              className="relative w-full max-w-2xl h-[800px] rounded-lg shadow-lg border-0 overflow-hidden cursor-pointer group"
+              className="relative w-full max-w-2xl h-[400px] md:h-[800px] rounded-lg shadow-lg border-0 overflow-hidden cursor-pointer group"
               onClick={() => setIsPdfOpen(true)}
             >
               <iframe
@@ -136,14 +136,14 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="body-text space-y-4 text-white">
+          <div className="body-text space-y-6 text-lg leading-relaxed text-white text-center">
             <p>
               Buku panduan yang dibuat khusus untuk pelajar Indonesia yang baru saja tiba di Aachen<br />
               A guide book specially made for Indonesian students that have just arrived in Aachen
             </p>
-            <div className="mt-4">
-              <a href="/wiki-aachen" className="btn-primary bg-white text-[#002F6C] hover:bg-gray-100">
-                View Guide
+            <div className="mt-4 flex justify-center">
+              <a href="/wiki-aachen" className="btn-primary bg-white text-[#002F6C] hover:bg-gray-100 rounded-xl px-6 py-2">
+                Buka wiki
               </a>
             </div>
           </div>
@@ -152,14 +152,14 @@ export default function Home() {
 
       {/* Section 6: Peta Wilayah Kerja (White) */}
       <div className="bg-white pt-6 pb-12 px-12 md:px-[48px]">
-        <section className="max-w-4xl mx-auto">
-          <h2 className="heading-2">Peta Wilayah Kerja</h2>
-          <div className="body-text space-y-4">
+        <section className="max-w-7xl mx-auto">
+          <h2 className="heading-2 text-center">Peta Wilayah Kerja</h2>
+          <div className="body-text space-y-6 text-lg text-gray-700 leading-relaxed">
             <div className="mt-8 flex justify-center">
               <img
                 src={petaWilayah}
                 alt="Peta Wilayah Kerja PPI Aachen"
-                className="rounded-lg shadow-md max-w-lg h-auto"
+                className="rounded-lg shadow-md w-full max-w-lg h-auto"
               />
             </div>
           </div>
