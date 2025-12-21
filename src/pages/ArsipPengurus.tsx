@@ -3,6 +3,13 @@
 import { useState } from 'react'
 import HeroHeader from '../components/HeroHeader'
 
+import kabinet2425 from '../assets/pengurus/kabinet-2024-2025.jpg'
+import kabinet2526 from '../assets/pengurus/kabinet-2025-2026.jpg'
+import kabinet2224 from '../assets/pengurus/kabinet-2022-2024.jpg'
+import kabinet2122 from '../assets/pengurus/kabinet-2021-2022.jpg'
+import kabinet2021 from '../assets/pengurus/kabinet-2020-2021.jpg'
+import kabinet1819 from '../assets/pengurus/kabinet-2018-2019.jpg'
+
 export default function ArsipPengurus() {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null)
 
@@ -15,6 +22,7 @@ export default function ArsipPengurus() {
       period: "2025/2026",
       chair: "Adriano Ferane Gunawan",
       vice: "Alfred Triza & Nathanael Lumen Sukmana",
+      image: kabinet2526,
       departments: [
         { name: "BPKK", members: ["Nathan Matthew Kurnia", "Muhammad Mulya Salam"] },
         { name: "Human Resources", members: ["Aisha Safwa Fatiha", "Briggita Graciella"] },
@@ -32,6 +40,7 @@ export default function ArsipPengurus() {
       period: "2024/2025",
       chair: "Nathan Matthew Kurnia",
       vice: "Muhammad Mulya Salam",
+      image: kabinet2425,
       departments: [
         { name: "BPKK", members: ["Randy Cendiano"] },
         { name: "Human Resources", members: ["Fachrial Dimas Putra Perdana", "Tifano Muhammad Noor Isykio"] },
@@ -48,6 +57,7 @@ export default function ArsipPengurus() {
       period: "2022/2024",
       chair: "Tifano Muhammad Noor",
       vice: "Mohammad Agnar Khafani",
+      image: kabinet2224,
       departments: [
         { name: "BPKK", members: ["Daniel Ariel Yobel"] },
         { name: "Sekretaris", members: ["Anindya Putri Diandra", "Tarisa Putri Nandita"] },
@@ -63,6 +73,7 @@ export default function ArsipPengurus() {
       period: "2021/2022",
       chair: "Reza Rahman Susilo",
       vice: "Matilda Nydia Harista",
+      image: kabinet2122,
       departments: [
         { name: "BPKK", members: ["Faryansyah Putra Rahardian"] },
         { name: "Sekretaris", members: ["Gabriela Giraldine Lutter", "Amirah Amany Hakim"] },
@@ -96,6 +107,7 @@ export default function ArsipPengurus() {
       period: "2020/2021",
       chair: "Bintan Dzulfikar Hakim",
       vice: "Faryansyah Putra Rahadian",
+      image: kabinet2021,
       departments: [
         { name: "BPKK", members: ["Daniel Ariel Yobel", "Tegar Permana Diyado"] },
         { name: "Sekretaris", members: ["Shafira Febriana Ekaputri"] },
@@ -127,6 +139,7 @@ export default function ArsipPengurus() {
       period: "2018/2019",
       chair: "Christian Stainly Pungus",
       vice: "Tegar Diyado Permana",
+      image: kabinet1819,
       departments: [
         { name: "BPKK", members: ["Romualdus Nugraha Catur Utomo"] },
         { name: "Sekretaris", members: ["Regina Diptahsing Hadiwinata"] },
@@ -281,6 +294,7 @@ export default function ArsipPengurus() {
                                     `}
                     >
                       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
                         {cab.departments.map((dept, dIdx) => (
                           <div key={dIdx} className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
                             <h4 className="font-bold text-[#002F6C] mb-2 text-sm uppercase tracking-wide border-b pb-1 border-gray-100">{dept.name}</h4>
@@ -291,6 +305,19 @@ export default function ArsipPengurus() {
                             </ul>
                           </div>
                         ))}
+
+                        {/* Cabinet Image if available */}
+                        {/* @ts-ignore - Validating dynamic property */}
+                        {cab.image && (
+                          <div className="md:col-span-2 lg:col-span-3 mt-4">
+                            <img
+                              // @ts-ignore
+                              src={cab.image}
+                              alt={`Kabinet ${cab.period}`}
+                              className="w-full h-auto rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+                            />
+                          </div>
+                        )}
                       </div>
                     </div>
                   )}
