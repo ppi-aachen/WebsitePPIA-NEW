@@ -1,5 +1,9 @@
 import HeroHeader from '../components/HeroHeader'
 
+import habibieFriends from '../assets/habibie_friends.jpg'
+import logoOld from '../assets/logo_ppi_old.png'
+import iconicEvent from '../assets/iconic_event.jpg'
+
 export default function Sejarah() {
   return (
     <div>
@@ -20,7 +24,7 @@ export default function Sejarah() {
                 </div>
                 <div className="w-full md:w-1/3 flex-shrink-0">
                   <img
-                    src="/src/assets/habibie_friends.jpg"
+                    src={habibieFriends}
                     alt="Foto Habibie bersama teman-teman PPI"
                     className="rounded-lg shadow-lg w-full h-auto object-cover"
                   />
@@ -32,7 +36,7 @@ export default function Sejarah() {
               <div className="flex flex-col md:flex-row gap-8 items-center">
                 <div className="w-full md:w-1/3 flex-shrink-0">
                   <img
-                    src="/src/assets/logo_ppi_old.png"
+                    src={logoOld}
                     alt="Logo lama PPI Aachen"
                     className="rounded-lg shadow-lg w-full h-auto object-cover"
                   />
@@ -60,7 +64,7 @@ export default function Sejarah() {
                 </div>
                 <div className="w-full md:w-1/3 flex-shrink-0">
                   <img
-                    src="/src/assets/iconic_event.jpg"
+                    src={iconicEvent}
                     alt="ICONIC"
                     className="rounded-lg shadow-lg w-full h-auto object-cover"
                   />
