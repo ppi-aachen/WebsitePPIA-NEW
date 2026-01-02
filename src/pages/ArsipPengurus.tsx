@@ -3,12 +3,13 @@
 import { useState } from 'react'
 import HeroHeader from '../components/HeroHeader'
 
-import kabinet2425 from '../assets/pengurus/kabinet-2024-2025.jpg'
-import kabinet2526 from '../assets/pengurus/kabinet-2025-2026.jpg'
-import kabinet2224 from '../assets/pengurus/kabinet-2022-2024.jpg'
-import kabinet2122 from '../assets/pengurus/kabinet-2021-2022.jpg'
-import kabinet2021 from '../assets/pengurus/kabinet-2020-2021.jpg'
-import kabinet1819 from '../assets/pengurus/kabinet-2018-2019.jpg'
+// Cabinet images served from public folder
+const kabinet2425 = '/images/pengurus/kabinet-2024-2025.jpg'
+const kabinet2526 = '/images/pengurus/kabinet-2025-2026.jpg'
+const kabinet2224 = '/images/pengurus/kabinet-2022-2024.jpg'
+const kabinet2122 = '/images/pengurus/kabinet-2021-2022.jpg'
+const kabinet2021 = '/images/pengurus/kabinet-2020-2021.jpg'
+const kabinet1819 = '/images/pengurus/kabinet-2018-2019.jpg'
 
 export default function ArsipPengurus() {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null)
