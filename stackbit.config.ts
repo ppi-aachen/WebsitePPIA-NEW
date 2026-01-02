@@ -7,7 +7,6 @@ export default defineStackbitConfig({
     nodeVersion: '18',
     contentSources: [
         new GitContentSource({
-            rootPath: __dirname,
             contentDirs: ['content'],
             models: [
                 {
@@ -43,5 +42,18 @@ export default defineStackbitConfig({
                 }
             ]
         })
-    ]
+    ],
+    siteMap: ({ documents }) => {
+        return documents
+            .filter((d) => d.modelName === 'Page')
+            .map((d) => {
+                const slug = d.fields.slug;
+                if (!slug) return null;
+                return {
+                    urlPath: slug === 'home' ? '/' : `/${slug}`,
+                    document: d,
+                };
+            })
+            .filter((d) => d !== null) as any[];
+    }
 });
