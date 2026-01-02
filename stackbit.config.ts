@@ -9,11 +9,18 @@ const __dirname = path.dirname(__filename);
 export default defineStackbitConfig({
     stackbitVersion: '~0.6.0',
     ssgName: 'custom',
+    devCommand: 'npm run dev',
     nodeVersion: '18',
     contentSources: [
         new GitContentSource({
             rootPath: __dirname,
             contentDirs: ['content'],
+            assetsConfig: {
+                referenceType: 'static',
+                staticDir: 'public',
+                uploadDir: 'images',
+                publicPath: '/'
+            },
             models: [
                 {
                     name: 'Page',
@@ -50,7 +57,7 @@ export default defineStackbitConfig({
         })
     ],
     siteMap: ({ documents }) => {
-        return documents
+        return (documents as any[])
             .filter((d) => d.modelName === 'Page')
             .map((d) => {
                 const slug = d.fields.slug;
