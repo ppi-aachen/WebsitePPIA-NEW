@@ -24,6 +24,7 @@ export default defineStackbitConfig({
                     filePath: 'content/pages/{slug}.json',
                     fields: [
                         { name: 'title', type: 'string', required: true },
+                        { name: 'slug', type: 'string', required: true, hidden: true },
                         { name: 'sections', type: 'list', items: { type: 'model', models: ['Hero', 'Section'] } }
                     ]
                 },
