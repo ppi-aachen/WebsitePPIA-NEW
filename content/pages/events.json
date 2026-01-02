@@ -134,6 +134,13 @@
                     "image": "/images/events/lerncafe.jpg"
                 },
                 {
+                    "type": "Event",
+                    "title": "Test",
+                    "date": "5 January 2026",
+                    "location": "Humboldt-Haus ",
+                    "description": "The sitemap for the visual editor is empty. Content editors will not be able to use the page editor, or the sitemap navigator to navigate within your project. Learn more in the docs"
+                },
+                {
                     "title": "Funmatch Esport",
                     "date": "11 Januari 2025",
                     "time": "13:00 (MLBB), 17:30 (Valorant)",
@@ -192,13 +199,6 @@
                     "location": "KHG Aachen, Pontstr 72",
                     "description": "Sidang perwakilan anggota dan pemilihan ketua PPI Aachen 24/25.",
                     "image": "/images/events/spa-2024.jpg"
-                },
-                {
-                    "type": "Event",
-                    "title": "Test",
-                    "date": "5 January 2026",
-                    "location": "Humboldt-Haus ",
-                    "description": "The sitemap for the visual editor is empty. Content editors will not be able to use the page editor, or the sitemap navigator to navigate within your project. Learn more in the docs"
                 },
                 {
                     "title": "Photo Hunting: Aachen Cekrek Club",
