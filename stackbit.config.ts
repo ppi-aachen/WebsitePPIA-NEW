@@ -1,3 +1,4 @@
+import { defineStackbitConfig } from '@stackbit/types';
 import { GitContentSource } from '@stackbit/cms-git';
 
 export default defineStackbitConfig({
