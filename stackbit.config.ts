@@ -1,12 +1,18 @@
 import { defineStackbitConfig } from '@stackbit/types';
 import { GitContentSource } from '@stackbit/cms-git';
+import * as path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 export default defineStackbitConfig({
     stackbitVersion: '~0.6.0',
-    ssgName: 'vite',
+    ssgName: 'custom',
     nodeVersion: '18',
     contentSources: [
         new GitContentSource({
+            rootPath: __dirname,
             contentDirs: ['content'],
             models: [
                 {
