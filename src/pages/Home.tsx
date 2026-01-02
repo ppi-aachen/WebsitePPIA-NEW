@@ -2,9 +2,8 @@ import HeroHeader from '../components/HeroHeader'
 import Carousel from '../components/Carousel'
 import { useState } from 'react'
 
-import habibieHistory from '../assets/habibie_history.jpg'
-import logoDescription from '../assets/logo_description.png'
-import petaWilayah from '../assets/peta_wilayah.jpg'
+// Import content from JSON
+import homeData from '../../content/pages/home.json'
 
 export default function Home() {
   const [isPdfOpen, setIsPdfOpen] = useState(false)
@@ -16,11 +15,25 @@ export default function Home() {
     .sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }))
     .map(path => (carouselImages[path] as { default: string }).default)
 
+  // Helper to find section by title
+  const getSection = (title: string) => homeData.sections.find(s => s.title === title)
+
+  const heroSection = getSection('PPI Aachen') || { title: 'PPI Aachen', subtitle: 'Indonesian Students Association in Aachen' } // Fallback or use JSON if structure matches
+  const aboutSection = getSection('About Us')
+  const historySection = getSection('Short History')
+  const logoSection = getSection('Our Logo')
+  const petaSection = getSection('Peta Wilayah Kerja')
+
+  // Helper to render content with line breaks
+  const renderContent = (content: string) => {
+    return <div dangerouslySetInnerHTML={{ __html: content.replace(/\n\n/g, '<br/><br/>') }} />
+  }
+
   return (
-    <div>
+    <div data-sb-object-id="content/pages/home.json">
       <HeroHeader
-        title="PPI Aachen"
-        subtitle="Indonesian Students Association in Aachen"
+        title={heroSection.title}
+        subtitle={heroSection.subtitle || ''}
       />
 
       {/* Section 1: Carousel + Linktree (Blue) */}
@@ -44,67 +57,64 @@ export default function Home() {
       </div>
 
       {/* Section 2: About Us (White) */}
-      <div className="bg-white pt-6 pb-12 px-12 md:px-[48px]">
-        <section className="max-w-7xl mx-auto">
-          <h2 className="heading-2">About Us</h2>
-          <div className="body-text space-y-6 text-lg text-gray-700 leading-relaxed">
-            <p>
-              <strong>Perhimpunan Pelajar Indonesia di Aachen</strong> atau PPI Aachen adalah sebuah perkumpulan pelajar Indonesia yang bersifat politik non partais, ilmiah, sosial, dan independen yang berpusat di Aachen. PPI Aachen memiliki misi untuk menghimpun, melindungi, dan membela kepentingan para anggotanya dalam rangka meningkatkan kualitas diri dan mengoptimalkan seluruh potensi yang dimiliki, serta mewujudkan masyarakat Indonesia yang lebih adil dan sejahtera. Menjadi bermanfaat bagi Indonesia dan Jerman adalah visi utama kami.
-            </p>
-            <p>
-              <strong>Perhimpunan Pelajar Indonesia di Aachen (Indonesian Students Association in Aachen)</strong> or PPI Aachen is a non-party political, scientific, social and independent student association based in Aachen. PPI Aachen has a mission to gather, protect, and defend the interests of its members in order to improve their quality and optimize all their potential, and to create a more fair and prosperous Indonesian society. To be beneficial to both Indonesia and Germany is our main vision.
-            </p>
-          </div>
-        </section>
-      </div>
+      {aboutSection && (
+        <div className="bg-white pt-6 pb-12 px-12 md:px-[48px]" data-sb-object-id={aboutSection.title}>
+          <section className="max-w-7xl mx-auto">
+            <h2 className="heading-2" data-sb-field-path="title">{aboutSection.title}</h2>
+            <div className="body-text space-y-6 text-lg text-gray-700 leading-relaxed" data-sb-field-path="content">
+              {renderContent(aboutSection.content || '')}
+            </div>
+          </section>
+        </div>
+      )}
 
       {/* Section 3: Short History (Blue) */}
-      <div className="bg-[#0161bf] text-white pt-6 pb-12 px-12 md:px-[48px]">
-        <section className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row gap-8 items-center">
-            <div className="body-text space-y-6 text-lg leading-relaxed text-white flex-1 md:text-right">
-              <h2 className="heading-2 text-white">Short History</h2>
-              <p>
-                PPI Aachen didirikan pada 4 Mei 1956 bersamaan dengan berdirinya PPI Jerman. PPI Aachen pertama didirikan oleh Peter Manusama, dengan Liem Keng Kie sebagai bendahara dan Presiden Republik Indonesia ke-3, B. J. Habibie sebagai sekretaris pada masa dia berkuliah di RWTH Aachen. Sidang perwakilan anggota pertama diadakan pada 1957, dimana melalui pemilihan umum, B. J. Habibie terpilih menjadi ketua PPI Aachen. PPI Aachen sendiri didirikan karena ada rasa diperlukannya sebuah organisasi yang bisa mendukung dan membantu pelajar-pelajar Indonesia di Aachen.
-              </p>
-              <p>
-                PPI Aachen was founded on May 4, 1956 at the same time as PPI Jerman (Vereinigung Indonesischer Studenten e.V). PPI Aachen was first founded by Peter Manusama, with Liem Keng Kie as treasurer and the 3rd President of the Republic of Indonesia, B. J. Habibie as secretary while he was studying at RWTH Aachen. The first member representative assembly was held in 1957, where through elections, B. J. Habibie was elected chairman of PPI Aachen. PPI Aachen itself was established because there was a sense of need for an organization that could support and help Indonesian students in Aachen.
-              </p>
+      {historySection && (
+        <div className="bg-[#0161bf] text-white pt-6 pb-12 px-12 md:px-[48px]" data-sb-object-id={historySection.title}>
+          <section className="max-w-7xl mx-auto">
+            <div className="flex flex-col md:flex-row gap-8 items-center">
+              <div className="body-text space-y-6 text-lg leading-relaxed text-white flex-1 md:text-right">
+                <h2 className="heading-2 text-white" data-sb-field-path="title">{historySection.title}</h2>
+                <div data-sb-field-path="content">
+                  {renderContent(historySection.content || '')}
+                </div>
+              </div>
+              <div className="w-full md:w-1/3 flex-shrink-0">
+                <img
+                  src={historySection.image}
+                  alt={historySection.title}
+                  className="rounded-lg shadow-lg w-full h-auto object-cover border-4 border-white/20"
+                  data-sb-field-path="image"
+                />
+              </div>
             </div>
-            <div className="w-full md:w-1/3 flex-shrink-0">
-              <img
-                src={habibieHistory}
-                alt="B.J. Habibie dan rekan-rekan PPI Aachen 1956"
-                className="rounded-lg shadow-lg w-full h-auto object-cover border-4 border-white/20"
-              />
-            </div>
-          </div>
-        </section>
-      </div>
+          </section>
+        </div>
+      )}
 
       {/* Section 4: Our Logo (White) */}
-      <div className="bg-white pt-6 pb-12 px-12 md:px-[48px]">
-        <section className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row gap-8 items-center">
-            <div className="w-full md:w-1/3 flex-shrink-0">
-              <img
-                src={logoDescription}
-                alt="Logo PPI Aachen"
-                className="rounded-lg shadow-lg w-full h-auto object-cover"
-              />
+      {logoSection && (
+        <div className="bg-white pt-6 pb-12 px-12 md:px-[48px]" data-sb-object-id={logoSection.title}>
+          <section className="max-w-7xl mx-auto">
+            <div className="flex flex-col md:flex-row gap-8 items-center">
+              <div className="w-full md:w-1/3 flex-shrink-0">
+                <img
+                  src={logoSection.image}
+                  alt={logoSection.title}
+                  className="rounded-lg shadow-lg w-full h-auto object-cover"
+                  data-sb-field-path="image"
+                />
+              </div>
+              <div className="body-text space-y-6 text-lg text-gray-700 leading-relaxed flex-1">
+                <h2 className="heading-2" data-sb-field-path="title">{logoSection.title}</h2>
+                <div data-sb-field-path="content">
+                  {renderContent(logoSection.content || '')}
+                </div>
+              </div>
             </div>
-            <div className="body-text space-y-6 text-lg text-gray-700 leading-relaxed flex-1">
-              <h2 className="heading-2">Our Logo</h2>
-              <p>
-                Logo kami terdiri dari 2 garis, dengan 2 jenis warna biru yang berbeda. Warna-warna ini mewakili Universitas RWTH Aachen yang terkenal. Di sisinya, Anda juga dapat menemukan profil samping Charlemagne yang agung, kaisar abad pertengahan yang pernah memerintah sebagian besar Eropa Barat dari Aachen.
-              </p>
-              <p>
-                Our logo consists of 2 lines, adored with 2 different kinds of blue. These colors represent the famous RWTH Aachen University. On its side, you can also find the side profile of the great Charlemagne, a medieval emperor who once ruled much of Western Europe from Aachen.
-              </p>
-            </div>
-          </div>
-        </section>
-      </div>
+          </section>
+        </div>
+      )}
 
       {/* Section 5: Aachen für Dummies (Blue) */}
       <div className="bg-[#0161bf] text-white pt-6 pb-12 px-12 md:px-[48px]">
@@ -151,26 +161,26 @@ export default function Home() {
       </div>
 
       {/* Section 6: Peta Wilayah Kerja (White) */}
-      <div className="bg-white pt-6 pb-12 px-12 md:px-[48px]">
-        <section className="max-w-7xl mx-auto">
-          <h2 className="heading-2 text-center">Peta Wilayah Kerja</h2>
-          <div className="body-text space-y-6 text-lg text-gray-700 leading-relaxed">
-            <div className="mt-8 flex justify-center">
-              <img
-                src={petaWilayah}
-                alt="Peta Wilayah Kerja PPI Aachen"
-                className="rounded-lg shadow-md w-full max-w-lg h-auto"
-              />
+      {petaSection && (
+        <div className="bg-white pt-6 pb-12 px-12 md:px-[48px]" data-sb-object-id={petaSection.title}>
+          <section className="max-w-7xl mx-auto">
+            <h2 className="heading-2 text-center" data-sb-field-path="title">{petaSection.title}</h2>
+            <div className="body-text space-y-6 text-lg text-gray-700 leading-relaxed">
+              <div className="mt-8 flex justify-center">
+                <img
+                  src={petaSection.image}
+                  alt={petaSection.title}
+                  className="rounded-lg shadow-md w-full max-w-lg h-auto"
+                  data-sb-field-path="image"
+                />
+              </div>
+              <div className="body-text space-y-6 text-lg leading-relaxed text-gray-700 text-center" data-sb-field-path="content">
+                {renderContent(petaSection.content || '')}
+              </div>
             </div>
-            <div className="body-text space-y-6 text-lg leading-relaxed text-gray-700 text-center">
-              <p>
-                Peta wilayah kerja PPI Aachen, daerah dimana PPI Aachen beroperasi di Jerman. <br />
-                PPI Aachen operates in the following regions of Germany.
-              </p>
-            </div>
-          </div>
-        </section>
-      </div>
+          </section>
+        </div>
+      )}
 
       {/* PDF Modal */}
       {isPdfOpen && (
