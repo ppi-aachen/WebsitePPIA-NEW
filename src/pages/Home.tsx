@@ -31,10 +31,15 @@ export default function Home() {
 
   return (
     <div data-sb-object-id="content/pages/home.json">
-      <HeroHeader
-        title={heroSection.title}
-        subtitle={heroSection.subtitle || ''}
-      />
+      {/* Hero Section (Index 0) */}
+      <div data-sb-field-path="sections.0">
+        <HeroHeader
+          title={heroSection.title}
+          subtitle={heroSection.subtitle || ''}
+        />
+        {/* Note: deeper field annotations require support in HeroHeader or wrapping text there. 
+            For now, annotating the container allows selecting the object. */}
+      </div>
 
       {/* Section 1: Carousel + Linktree (Blue) */}
       <div className="bg-[#0161bf] pt-12 pb-12 px-12 md:px-[48px]">
@@ -56,9 +61,9 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Section 2: About Us (White) */}
+      {/* Section 2: About Us (Index 1) (White) */}
       {aboutSection && (
-        <div className="bg-white pt-6 pb-12 px-12 md:px-[48px]" data-sb-object-id={aboutSection.title}>
+        <div className="bg-white pt-6 pb-12 px-12 md:px-[48px]" data-sb-field-path="sections.1">
           <section className="max-w-7xl mx-auto">
             <h2 className="heading-2" data-sb-field-path="title">{aboutSection.title}</h2>
             <div className="body-text space-y-6 text-lg text-gray-700 leading-relaxed" data-sb-field-path="content">
@@ -68,9 +73,9 @@ export default function Home() {
         </div>
       )}
 
-      {/* Section 3: Short History (Blue) */}
+      {/* Section 3: Short History (Index 2) (Blue) */}
       {historySection && (
-        <div className="bg-[#0161bf] text-white pt-6 pb-12 px-12 md:px-[48px]" data-sb-object-id={historySection.title}>
+        <div className="bg-[#0161bf] text-white pt-6 pb-12 px-12 md:px-[48px]" data-sb-field-path="sections.2">
           <section className="max-w-7xl mx-auto">
             <div className="flex flex-col md:flex-row gap-8 items-center">
               <div className="body-text space-y-6 text-lg leading-relaxed text-white flex-1 md:text-right">
@@ -92,9 +97,9 @@ export default function Home() {
         </div>
       )}
 
-      {/* Section 4: Our Logo (White) */}
+      {/* Section 4: Our Logo (Index 3) (White) */}
       {logoSection && (
-        <div className="bg-white pt-6 pb-12 px-12 md:px-[48px]" data-sb-object-id={logoSection.title}>
+        <div className="bg-white pt-6 pb-12 px-12 md:px-[48px]" data-sb-field-path="sections.3">
           <section className="max-w-7xl mx-auto">
             <div className="flex flex-col md:flex-row gap-8 items-center">
               <div className="w-full md:w-1/3 flex-shrink-0">
@@ -160,9 +165,9 @@ export default function Home() {
         </section>
       </div>
 
-      {/* Section 6: Peta Wilayah Kerja (White) */}
+      {/* Section 6: Peta Wilayah Kerja (Index 4) (White) */}
       {petaSection && (
-        <div className="bg-white pt-6 pb-12 px-12 md:px-[48px]" data-sb-object-id={petaSection.title}>
+        <div className="bg-white pt-6 pb-12 px-12 md:px-[48px]" data-sb-field-path="sections.4">
           <section className="max-w-7xl mx-auto">
             <h2 className="heading-2 text-center" data-sb-field-path="title">{petaSection.title}</h2>
             <div className="body-text space-y-6 text-lg text-gray-700 leading-relaxed">
