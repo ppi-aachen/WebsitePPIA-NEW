@@ -33,6 +33,13 @@
                     "image": "/images/events/raia.jpg"
                 },
                 {
+                    "type": "Event",
+                    "title": "Test",
+                    "date": "5 January 2026",
+                    "location": "Humboldt-Haus ",
+                    "description": "The sitemap for the visual editor is empty. Content editors will not be able to use the page editor, or the sitemap navigator to navigate within your project. Learn more in the docs"
+                },
+                {
                     "title": "Aachen Book Club Ep. 3",
                     "date": "21 November 2025",
                     "time": "18:00 – 20:00",
@@ -132,13 +139,6 @@
                     "location": "AWO Aachen Nord",
                     "description": "Fasilitas belajar nyaman dengan coffee break, internet, dan pemanas ruangan. Gratis setiap minggu!",
                     "image": "/images/events/lerncafe.jpg"
-                },
-                {
-                    "type": "Event",
-                    "title": "Test",
-                    "date": "5 January 2026",
-                    "location": "Humboldt-Haus ",
-                    "description": "The sitemap for the visual editor is empty. Content editors will not be able to use the page editor, or the sitemap navigator to navigate within your project. Learn more in the docs"
                 },
                 {
                     "title": "Funmatch Esport",
