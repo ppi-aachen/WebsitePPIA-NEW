@@ -1,12 +1,12 @@
-import { defineStackbitConfig } from '@stackbit/types';
+import { GitContentSource } from '@stackbit/cms-git';
 
 export default defineStackbitConfig({
     stackbitVersion: '~0.6.0',
     ssgName: 'vite',
     nodeVersion: '18',
     contentSources: [
-        {
-            name: 'git',
+        new GitContentSource({
+            rootPath: __dirname,
             contentDirs: ['content'],
             models: [
                 {
@@ -41,6 +41,6 @@ export default defineStackbitConfig({
                     ]
                 }
             ]
-        }
+        })
     ]
 });
