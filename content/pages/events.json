@@ -194,6 +194,13 @@
                     "image": "/images/events/spa-2024.jpg"
                 },
                 {
+                    "type": "Event",
+                    "title": "Test",
+                    "date": "5 January 2026",
+                    "location": "Humboldt-Haus ",
+                    "description": "The sitemap for the visual editor is empty. Content editors will not be able to use the page editor, or the sitemap navigator to navigate within your project. Learn more in the docs"
+                },
+                {
                     "title": "Photo Hunting: Aachen Cekrek Club",
                     "date": "16 Desember 2023",
                     "time": "16:00 CET",
@@ -286,13 +293,6 @@
                     "location": "Unknown",
                     "description": "Cultural evening collaboration with INCAS.",
                     "image": "/images/events/indonesian-evening.jpg"
-                },
-                {
-                    "type": "Event",
-                    "title": "Test",
-                    "date": "5 January 2026",
-                    "location": "Humboldt-Haus ",
-                    "description": "The sitemap for the visual editor is empty. Content editors will not be able to use the page editor, or the sitemap navigator to navigate within your project. Learn more in the docs"
                 }
             ]
         }
