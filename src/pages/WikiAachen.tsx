@@ -1,15 +1,22 @@
 
+import wikiData from '../../content/pages/wiki-aachen.json'
 
 export default function WikiAachen() {
+  const iframeSection = wikiData.sections.find(s => s.type === 'IframeSection')
+
+  if (!iframeSection) return null;
+
   return (
-    <div className="w-full h-[calc(100vh-64px)] desktop:mt-[0px]">
-      <iframe
-        src="https://ppi-aachen.notion.site/ebd/1dc303bfd78480cc9bdeca069e2fb63a?v=1dc303bfd78481efb6c4000cc6bbe3ee"
-        className="w-full h-full border-0"
-        title="Aachen Für Dummies"
-        allow="fullscreen"
-        loading="lazy"
-      />
+    <div className="w-full h-[calc(100vh-64px)] desktop:mt-[0px]" data-sb-object-id="content/pages/wiki-aachen.json">
+      <div data-sb-field-path={`sections.${wikiData.sections.findIndex(s => s.type === 'IframeSection')}`}>
+        <iframe
+          src={iframeSection.src}
+          className="w-full h-full border-0"
+          title={iframeSection.title || "Aachen Für Dummies"}
+          allow="fullscreen"
+          loading="lazy"
+        />
+      </div>
     </div>
   )
 }

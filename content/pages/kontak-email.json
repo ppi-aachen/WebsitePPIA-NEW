@@ -1,0 +1,57 @@
+{
+    "type": "Page",
+    "title": "Kontak Email",
+    "slug": "kontak-email",
+    "sections": [
+        {
+            "type": "Hero",
+            "title": "Kontak Email",
+            "subtitle": "Get in Touch"
+        },
+        {
+            "type": "ContactList",
+            "title": "Department Contacts",
+            "officeName": "Sekretariat PPI Aachen",
+            "officeAddress": "An der Schanz 1, 52064 Aachen, Germany",
+            "whatsappNumber": "+49 15679 027862 (WA Only)",
+            "contacts": [
+                {
+                    "role": "Sekretariat / General Inquiries",
+                    "email": "info@ppiaachen.de | sekretariat@ppiaachen.de"
+                },
+                {
+                    "role": "Bendahara (Treasury)",
+                    "email": "treasury@ppiaachen.de"
+                },
+                {
+                    "role": "Human Resources",
+                    "email": "human.resources@ppiaachen.de"
+                },
+                {
+                    "role": "Public Relations",
+                    "email": "public.relations@ppiaachen.de"
+                },
+                {
+                    "role": "Fundraising",
+                    "email": "fundraising@ppiaachen.de"
+                },
+                {
+                    "role": "Multimedia & IT",
+                    "email": "multimedia@ppiaachen.de"
+                },
+                {
+                    "role": "Education",
+                    "email": "education@ppiaachen.de"
+                },
+                {
+                    "role": "Arts & Culture",
+                    "email": "art.culture@ppiaachen.de"
+                },
+                {
+                    "role": "Sports",
+                    "email": "sports@ppiaachen.de"
+                }
+            ]
+        }
+    ]
+}

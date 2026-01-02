@@ -1,98 +1,26 @@
 import HeroHeader from '../components/HeroHeader'
+import spaData from '../../content/pages/spa.json'
 
 export default function Spa() {
+  const heroSection = spaData.sections.find(s => s.type === 'Hero')
+  const contentSection = spaData.sections.find(s => s.type === 'Section') as { type: string, title?: string, content: string } | undefined
+  const contentSectionIndex = spaData.sections.findIndex(s => s.type === 'Section')
+
   return (
-    <div>
-      <HeroHeader title="SPA" subtitle="Sidang Perwakilan Anggota PPI Aachen" />
+    <div data-sb-object-id="content/pages/spa.json">
+      <HeroHeader
+        title={heroSection?.title || "SPA"}
+        subtitle={heroSection?.subtitle || "Sidang Perwakilan Anggota PPI Aachen"}
+      />
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12">
-        <div className="bg-white p-8 md:p-12 rounded-2xl shadow-sm border border-gray-100 prose prose-lg max-w-none text-gray-700">
-
-          <h2 className="text-[#002F6C] font-bold border-b pb-2 mb-6">Tentang Sidang Perwakilan Anggota</h2>
-          <p>
-            Sidang Perwakilan Anggota (SPA) adalah forum tertinggi di PPI Aachen yang memiliki kekuatan hukum untuk menjalankan berbagai fungsi penting, seperti memilih Ketua dan anggota BPKK, mengubah AD/ART jika diperlukan, menerima atau menolak laporan pertanggungjawaban Badan Eksekutif dan BPKK, menetapkan anggota kehormatan, serta mengesahkan garis besar program kerja PPI Aachen. Keputusan yang diambil dalam SPA bersifat mengikat bagi seluruh anggota dan badan perlengkapan perhimpunan. Seluruh anggota PPI Aachen berhak menjadi peserta SPA, tetapi hanya anggota penuh PPI Aachen yang diperbolehkan berpartisipasi dalam pemilihan (AD Pasal 8.2).
-          </p>
-
-          <h2 className="text-[#002F6C] font-bold border-b pb-2 mt-12 mb-6">Tata Tertib</h2>
-          <ol className="list-decimal pl-5 space-y-1">
-            <li>Mengenakan pakaian sopan dan formal.</li>
-            <li>Dilarang melakukan tindakan yang dapat menghalangi jalannya sidang.</li>
-            <li>Dilarang menginterupsi tanpa izin presidium sidang terlebih dahulu.</li>
-            <li>Jika ingin meninggalkan ruangan sidang (ke WC dan/atau lainnya) diharap untuk izin terlebih dahulu.</li>
-            <li>Peserta dilarang meninggalkan ruangan sidang 5 menit sebelum pemungutan suara dimulai.</li>
-            <li>Peserta diwajibkan mengangkat tangan jika ingin berbicara ataupun bertanya kepada presidium sidang.</li>
-            <li>Peserta undangan hanya memiliki hak bicara jika diizinkan oleh presidium sidang.</li>
-          </ol>
-
-          <h2 className="text-[#002F6C] font-bold border-b pb-2 mt-12 mb-6">Hak & Kewajiban Peserta</h2>
-
-          <h3 className="text-gray-900 font-bold mt-8 mb-2">Hak Peserta (Anggota Penuh)</h3>
-          <ol className="list-decimal pl-5 space-y-1">
-            <li><strong>Hak bicara:</strong> adalah untuk bertanya mengeluarkan pendapat, dan mengajukan usulan kepada presidium sidang baik secara lisan.</li>
-            <li><strong>Hak suara:</strong> adalah hak untuk ikut mengambil bagian dalam pengambilan keputusan.</li>
-            <li><strong>Hak memilih:</strong> adalah hak untuk menentukan pilihan dalam proses pemilihan.</li>
-            <li><strong>Hak dipilih:</strong> adalah hak untuk dipilih dalam proses pemilihan.</li>
-          </ol>
-
-          <h3 className="text-gray-900 font-bold mt-8 mb-2">Kewajiban Peserta</h3>
-          <ol className="list-decimal pl-5 space-y-1">
-            <li>Mentaati tata tertib/permusyawaratan.</li>
-            <li>Menjaga ketenangan/harmonisasi konferensi.</li>
-          </ol>
-
-          <h2 className="text-[#002F6C] font-bold border-b pb-2 mt-12 mb-6">Alur Pertanggungjawaban dan Kontrol</h2>
-
-          <h3 className="text-gray-900 font-bold mt-8 mb-2">1. Fase Pembentukan (Mandat)</h3>
-          <ul className="list-disc pl-5 space-y-1">
-            <li><strong>SPA Memilih Eksekutif:</strong> SPA berfungsi memilih Ketua PPI Aachen. Ketua terpilih kemudian menyusun kepengurusan Badan Eksekutif.</li>
-            <li><strong>SPA Memilih BPKK:</strong> SPA juga memilih anggota BPKK untuk periode yang sama.</li>
-          </ul>
-
-          <h3 className="text-gray-900 font-bold mt-8 mb-2">2. Fase Operasional (Kerja & Pengawasan)</h3>
-          <ul className="list-disc pl-5 space-y-1">
-            <li><strong>Eksekutif Bekerja:</strong> Badan Eksekutif menjalankan program kerja dan keputusan-keputusan SPA.</li>
-            <li><strong>BPKK Mengawasi (Fungsi Kontrol):</strong> BPKK melakukan pengontrolan terhadap kegiatan dan keuangan Badan Eksekutif.</li>
-            <li><strong>Audit Berkala:</strong> BPKK wajib memeriksa eksekutif sekurang-kurangnya 6 bulan sekali dan memberitahukan hasilnya secara tertulis.</li>
-          </ul>
-
-          <h3 className="text-gray-900 font-bold mt-8 mb-2">3. Fase Pertanggungjawaban (Laporan Akhir)</h3>
-          <ul className="list-disc pl-5 space-y-1">
-            <li><strong>LPJ Eksekutif:</strong> Badan Eksekutif wajib melaporkan dan mempertanggungjawabkan kegiatannya (termasuk keuangan & administrasi) secara tertulis kepada SPA.</li>
-            <li><strong>Laporan BPKK:</strong> BPKK wajib mempertanggungjawabkan hasil kerjanya (hasil audit atas eksekutif) kepada SPA.</li>
-          </ul>
-
-          <h3 className="text-gray-900 font-bold mt-8 mb-2">4. Fase Keputusan (Demisioner)</h3>
-          <ul className="list-disc pl-5 space-y-1">
-            <li><strong>Penilaian SPA:</strong> SPA berhak menerima atau menolak Laporan Pertanggungjawaban dari Badan Eksekutif dan BPKK.</li>
-            <li><strong>Pembebasan Jabatan:</strong> Jika laporan diterima, SPA membebaskan pengurus dari jabatannya (demisioner). SPA adalah satu-satunya badan yang berhak membebaskan pengurus pusat setelah mempertimbangkan laporan BPKK.</li>
-          </ul>
-
-          <h2 className="text-[#002F6C] font-bold border-b pb-2 mt-12 mb-6">Penjelasan Peran Struktur Organisasi</h2>
-
-          <h3 className="text-gray-900 font-bold mt-8 mb-2">Pelaksana/Pengurus (Eksekutif)</h3>
-          <ul className="list-disc pl-5 space-y-1">
-            <li><strong>Status Hukum:</strong> Merupakan badan koordinasi perhimpunan yang merupakan penanggung jawab hukum perhimpunan (AD Pasal 12.1).</li>
-            <li><strong>Tugas Utama:</strong> Melaksanakan keputusan-keputusan SPA, melakukan koordinasi dengan PPI Jerman, dan melaksanakan misi organisasi (AD Pasal 16.2).</li>
-            <li><strong>Wewenang:</strong> Mewakili perhimpunan ke luar dan ke dalam, serta menerima anggota penuh/luar biasa (AD Pasal 16.1).</li>
-            <li><strong>Masa Jabatan:</strong> 1 tahun dengan opsi perpanjangan 6 bulan (ART Pasal 4.1.b).</li>
-          </ul>
-
-          <h3 className="text-gray-900 font-bold mt-8 mb-2">SPA & Rapat Anggota (Legislatif)</h3>
-          <ul className="list-disc pl-5 space-y-1">
-            <li><strong>Kekuasaan Tertinggi:</strong> SPA memiliki kekuatan hukum tertinggi dalam perhimpunan (AD Pasal 14.1.a).</li>
-            <li><strong>Pembuatan Aturan Dasar:</strong> Perubahan AD/ART hanya dapat dilakukan di SPA (AD Pasal 14.1.d) dan (AD Pasal 20).</li>
-            <li><strong>Pemilihan Pemimpin:</strong> SPA berfungsi memilih Ketua PPI Aachen dan anggota BPKK (AD Pasal 14.1.c).</li>
-            <li><strong>Peraturan Operasional:</strong> Rapat anggota menetapkan peraturan yang bersifat independen dan tidak bertentangan dengan AD/ART (AD Pasal 15.1.c).</li>
-          </ul>
-
-          <h3 className="text-gray-900 font-bold mt-8 mb-2">Badan Pengawas Kegiatan & Keuangan/BPKK (Yudikatif)</h3>
-          <ul className="list-disc pl-5 space-y-1">
-            <li><strong>Independensi:</strong> Badan yang mengontrol dan mengawasi kegiatan dan keuangan pengurus pusat yang bersifat independen (AD Pasal 12.2).</li>
-            <li><strong>Hak Investigasi:</strong> Berhak mengambil langkah yang dianggap perlu sesuai fungsi kontrol (AD Pasal 17.2).</li>
-            <li><strong>Audit Keuangan:</strong> Wajib memeriksa sekurang-kurangnya enam bulan sekali dan melaporkan secara tertulis (ART Pasal 6.2).</li>
-            <li><strong>Mekanisme Pemakzulan:</strong> BPKK berhak mengusulkan SPA Luar Biasa (yang bisa berujung pada pergantian pengurus) (AD Pasal 17.3).</li>
-          </ul>
-
-        </div>
+        {contentSection && (
+          <div
+            className="bg-white p-8 md:p-12 rounded-2xl shadow-sm border border-gray-100 prose prose-lg max-w-none text-gray-700"
+            data-sb-field-path={`sections.${contentSectionIndex}`}
+          >
+            <div data-sb-field-path="content" dangerouslySetInnerHTML={{ __html: contentSection.content }} />
+          </div>
+        )}
       </div>
     </div>
   )
