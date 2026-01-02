@@ -1,35 +1,37 @@
 import HeroHeader from '../components/HeroHeader'
 import { useState } from 'react'
+import lpjData from '../../content/pages/arsip-lpj.json'
 
 export default function ArsipLpj() {
   const [selectedLpj, setSelectedLpj] = useState<{ year: string; url: string } | null>(null);
 
-  const lpjList = [
-    { year: "2024/2025", url: "https://drive.google.com/file/d/1kihZELUHJ_n4p2SapyjLLovX6Lqc4Web/view?usp=sharing" },
-    { year: "2022/2024", url: "https://drive.google.com/file/d/1fosB-Sxxt483uLfGNFo3HiRSkFL4gOWO/view?usp=sharing" },
-    { year: "2021/2022", url: "https://drive.google.com/file/d/1wRP8HHnigfMrcKprNrnT-i8m3Mt6zNHD/view?usp=sharing" },
-    { year: "2020/2021", url: "https://drive.google.com/file/d/1u7IYPBEHdeBnxgUWlOQyqDhs5vGVFmi-/view?usp=sharing" },
-    { year: "2018/2019", url: "https://drive.google.com/file/d/1BSv5HZXD5b9xFe_ZCEdUz6lkCfyi9KdB/view?usp=sharing" },
-    { year: "2017/2018", url: "https://drive.google.com/file/d/1BVT9wmvOEdXqyKy_4VUjnBpADqr-lR7I/view?usp=sharing" }
-  ];
+  const heroSection = lpjData.sections.find(s => s.type === 'Hero')
+  const lpjListSection = lpjData.sections.find(s => s.type === 'LpjList')
+  const lpjList = (lpjListSection?.items || []) as { year: string, url: string }[]
+
+  const lpjListIndex = lpjData.sections.findIndex(s => s.type === 'LpjList')
 
   const getPreviewUrl = (url: string) => {
     return url.replace('/view', '/preview');
   };
 
   return (
-    <div>
-      <HeroHeader title="Arsip LPJ" subtitle="Laporan Pertanggungjawaban" />
+    <div data-sb-object-id="content/pages/arsip-lpj.json">
+      <HeroHeader
+        title={heroSection?.title || "Arsip LPJ"}
+        subtitle={heroSection?.subtitle || "Laporan Pertanggungjawaban"}
+      />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" data-sb-field-path={`sections.${lpjListIndex}.items`}>
           {lpjList.map((lpj, idx) => (
             <div
               key={idx}
               onClick={() => setSelectedLpj(lpj)}
               className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:border-[#0161bf] transition-all group flex items-center justify-between cursor-pointer"
+              data-sb-field-path={`.${idx}`}
             >
               <div>
-                <h3 className="text-lg font-bold text-gray-900 group-hover:text-[#0161bf] transition-colors">LPJ {lpj.year}</h3>
+                <h3 className="text-lg font-bold text-gray-900 group-hover:text-[#0161bf] transition-colors" data-sb-field-path=".year">LPJ {lpj.year}</h3>
                 <p className="text-sm text-gray-500">View Document</p>
               </div>
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-400 group-hover:text-[#0161bf]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
