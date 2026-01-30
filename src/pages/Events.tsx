@@ -32,7 +32,7 @@ export default function Events() {
       />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="px-6 md:px-12 py-12">
+        <div className="px-12 md:px-[48px] py-12">
 
           <section className="mb-12" data-sb-field-path={`sections.${eventGridIndex}`}>
             <h2 className="heading-2 mb-8" data-sb-field-path="title">{eventGrid?.title}</h2>
@@ -70,7 +70,7 @@ export default function Events() {
                             {event.tag}
                           </span>
                         )}
-                        <h3 className="heading-3 text-[#002F6C] mb-1 group-hover:text-primary transition-colors" data-sb-field-path=".title">{event.title}</h3>
+                        <h3 className="heading-3 mb-1 group-hover:text-primary transition-colors text-[#002f6c]" data-sb-field-path=".title">{event.title}</h3>
                         <div className="text-sm text-gray-500 flex flex-col gap-1 mt-2">
                           {event.time && (
                             <div className="flex items-center gap-2">

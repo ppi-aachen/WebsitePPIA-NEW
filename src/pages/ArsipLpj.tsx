@@ -21,24 +21,26 @@ export default function ArsipLpj() {
         title={heroSection?.title || "Arsip LPJ"}
         subtitle={heroSection?.subtitle || "Laporan Pertanggungjawaban"}
       />
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" data-sb-field-path={`sections.${lpjListIndex}.items`}>
-          {lpjList.map((lpj, idx) => (
-            <div
-              key={idx}
-              onClick={() => setSelectedLpj(lpj)}
-              className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:border-[#0161bf] transition-all group flex items-center justify-between cursor-pointer"
-              data-sb-field-path={`.${idx}`}
-            >
-              <div>
-                <h3 className="text-lg font-bold text-gray-900 group-hover:text-[#0161bf] transition-colors" data-sb-field-path=".year">LPJ {lpj.year}</h3>
-                <p className="text-sm text-gray-500">View Document</p>
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="px-12 md:px-[48px] py-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" data-sb-field-path={`sections.${lpjListIndex}.items`}>
+            {lpjList.map((lpj, idx) => (
+              <div
+                key={idx}
+                onClick={() => setSelectedLpj(lpj)}
+                className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:border-[#0161bf] transition-all group flex items-center justify-between cursor-pointer"
+                data-sb-field-path={`.${idx}`}
+              >
+                <div>
+                  <h3 className="heading-3 mt-0 mb-1 group-hover:text-[#0161bf] transition-colors" data-sb-field-path=".year">LPJ {lpj.year}</h3>
+                  <p className="body-text text-sm text-gray-500 mt-0">View Document</p>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-400 group-hover:text-[#0161bf]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
               </div>
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-400 group-hover:text-[#0161bf]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-              </svg>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
 

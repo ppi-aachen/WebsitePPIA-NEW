@@ -8,7 +8,7 @@ export default function WikiAachen() {
 
   return (
     <div className="w-full h-[calc(100vh-64px)] desktop:mt-[0px]" data-sb-object-id="content/pages/wiki-aachen.json">
-      <div data-sb-field-path={`sections.${wikiData.sections.findIndex(s => s.type === 'IframeSection')}`}>
+      <div className="h-full" data-sb-field-path={`sections.${wikiData.sections.findIndex(s => s.type === 'IframeSection')}`}>
         <iframe
           src={iframeSection.src}
           className="w-full h-full border-0"
@@ -20,4 +20,5 @@ export default function WikiAachen() {
     </div>
   )
 }
+
 

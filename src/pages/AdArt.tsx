@@ -19,49 +19,51 @@ export default function AdArt() {
         title={heroSection?.title || "AD/ART PPI Aachen"}
         subtitle={heroSection?.subtitle || "Anggaran Dasar & Anggaran Rumah Tangga"}
       />
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12">
-        <div className="bg-white p-8 md:p-12 rounded-2xl shadow-sm border border-gray-100 prose prose-lg max-w-none text-gray-700">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="px-12 md:px-[48px] py-12">
+          <div className="bg-white p-8 md:p-12 rounded-2xl shadow-sm border border-gray-100 prose prose-lg max-w-none text-gray-700">
 
-          {contentSections.map((section, index) => {
-            const dataIndex = adArtData.sections.indexOf(section);
-            const isLastSection = index === contentSections.length - 1;
+            {contentSections.map((section, index) => {
+              const dataIndex = adArtData.sections.indexOf(section);
+              const isLastSection = index === contentSections.length - 1;
 
-            return (
-              <div key={index} data-sb-field-path={`sections.${dataIndex}`}>
-                {section.title && (
-                  <h1 className="text-[#002F6C] font-bold text-3xl mb-8" data-sb-field-path="title">{section.title}</h1>
-                )}
-                <div data-sb-field-path="content">
-                  {renderHtmlContent(section.content || '')}
+              return (
+                <div key={index} data-sb-field-path={`sections.${dataIndex}`}>
+                  {section.title && (
+                    <h1 className="heading-2 mb-8" data-sb-field-path="title">{section.title}</h1>
+                  )}
+                  <div data-sb-field-path="content">
+                    {renderHtmlContent(section.content || '')}
+                  </div>
+
+                  {/* Divider between sections, but not after the last one */}
+                  {!isLastSection && (
+                    <div className="my-12 border-t border-gray-200"></div>
+                  )}
                 </div>
+              );
+            })}
 
-                {/* Divider between sections, but not after the last one */}
-                {!isLastSection && (
-                  <div className="my-12 border-t border-gray-200"></div>
-                )}
-              </div>
-            );
-          })}
+          </div>
+
+          <div className="my-12 border-t border-gray-200"></div>
+
+          <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 text-center">
+            <p className="body-text mb-4 font-medium">
+              Hanya file ini (dokumen yang di-embed di bawah) yang dianggap sah sebagai referensi utama.
+            </p>
+            <button
+              onClick={() => setShowModal(true)}
+              className="inline-flex items-center gap-2 px-6 py-3 bg-[#002F6C] text-white font-bold rounded-lg hover:bg-[#001D43] transition-colors shadow-md hover:shadow-lg"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              Buka Dokumen Resmi AD/ART
+            </button>
+          </div>
 
         </div>
-
-        <div className="my-12 border-t border-gray-200"></div>
-
-        <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 text-center">
-          <p className="text-gray-700 mb-4 font-medium">
-            Hanya file ini (dokumen yang di-embed di bawah) yang dianggap sah sebagai referensi utama.
-          </p>
-          <button
-            onClick={() => setShowModal(true)}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-[#002F6C] text-white font-bold rounded-lg hover:bg-[#001D43] transition-colors shadow-md hover:shadow-lg"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-            </svg>
-            Buka Dokumen Resmi AD/ART
-          </button>
-        </div>
-
       </div>
 
       {/* Official Doc Modal */}
