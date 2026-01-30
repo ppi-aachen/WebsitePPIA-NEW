@@ -16,25 +16,27 @@ export default function Impressum() {
                 title={heroSection?.title || "Impressum"}
                 subtitle={heroSection?.subtitle || "Impressum & Datenschutzerklärung"}
             />
-            <div className="bg-white py-12 px-12 md:px-[48px]">
-                <div className="max-w-4xl mx-auto space-y-12">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div className="px-12 md:px-[48px] py-12">
+                    {/* Content Wrapper to maintain readability if needed, or just let it flow 7xl */}
+                    <div className="space-y-12">
 
-                    {contentSections.map((section, index) => {
-                        const dataIndex = impressumData.sections.indexOf(section);
+                        {contentSections.map((section, index) => {
+                            const dataIndex = impressumData.sections.indexOf(section);
 
+                            return (
+                                <section key={index} className={`space-y-6 ${index > 0 ? 'pt-12 border-t border-gray-200' : ''}`} data-sb-field-path={`sections.${dataIndex}`}>
+                                    {section.title && (
+                                        <h2 className="heading-2" data-sb-field-path="title">{section.title}</h2>
+                                    )}
+                                    <div className="body-text" data-sb-field-path="content">
+                                        {renderHtmlContent(section.content || '')}
+                                    </div>
+                                </section>
+                            );
+                        })}
 
-                        return (
-                            <section key={index} className={`space-y-6 ${index > 0 ? 'pt-12 border-t border-gray-200' : ''}`} data-sb-field-path={`sections.${dataIndex}`}>
-                                {section.title && (
-                                    <h2 className="heading-1 text-[#0161bf]" data-sb-field-path="title">{section.title}</h2>
-                                )}
-                                <div data-sb-field-path="content">
-                                    {renderHtmlContent(section.content || '')}
-                                </div>
-                            </section>
-                        );
-                    })}
-
+                    </div>
                 </div>
             </div>
         </div>
