@@ -69,8 +69,8 @@ export default function Home() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="px-12 md:px-[48px] pt-6 pb-12">
               <section className="max-w-none">
-                <h2 className="heading-2" data-sb-field-path="title">{aboutSection.title}</h2>
-                <div className="body-text space-y-6 text-lg text-gray-700 leading-relaxed" data-sb-field-path="content">
+                <h2 className="heading-2 text-center" data-sb-field-path="title">{aboutSection.title}</h2>
+                <div className="body-text space-y-6 text-lg text-gray-700 leading-relaxed text-justify" data-sb-field-path="content">
                   {renderContent(aboutSection.content || '')}
                 </div>
               </section>
@@ -86,8 +86,8 @@ export default function Home() {
             <div className="px-12 md:px-[48px] pt-6 pb-12">
               <section className="max-w-none">
                 <div className="flex flex-col md:flex-row gap-8 items-center">
-                  <div className="body-text space-y-6 text-lg leading-relaxed text-white flex-1 md:text-right">
-                    <h2 className="heading-2 text-white" data-sb-field-path="title">{historySection.title}</h2>
+                  <div className="body-text space-y-6 text-lg leading-relaxed text-white flex-1 text-justify">
+                    <h2 className="heading-2 text-white text-center" data-sb-field-path="title">{historySection.title}</h2>
                     <div data-sb-field-path="content">
                       {renderContent(historySection.content || '')}
                     </div>
@@ -122,8 +122,8 @@ export default function Home() {
                       data-sb-field-path="image"
                     />
                   </div>
-                  <div className="body-text space-y-6 text-lg text-gray-700 leading-relaxed flex-1">
-                    <h2 className="heading-2" data-sb-field-path="title">{logoSection.title}</h2>
+                  <div className="body-text space-y-6 text-lg text-gray-700 leading-relaxed flex-1 text-justify">
+                    <h2 className="heading-2 text-center" data-sb-field-path="title">{logoSection.title}</h2>
                     <div data-sb-field-path="content">
                       {renderContent(logoSection.content || '')}
                     </div>
@@ -174,7 +174,7 @@ export default function Home() {
                 </p>
                 <div className="mt-4 flex justify-center">
                   <a href="/wiki-aachen" className="btn-primary bg-white text-[#002F6C] hover:bg-gray-100 rounded-xl px-6 py-2">
-                    Buka wiki
+                    Buka wiki online
                   </a>
                 </div>
               </div>
