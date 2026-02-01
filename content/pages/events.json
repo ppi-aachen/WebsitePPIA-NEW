@@ -14,14 +14,6 @@
             "events": [
                 {
                     "type": "Event",
-                    "title": "SPA",
-                    "date": "27 Februari 2025",
-                    "location": "Super-C",
-                    "description": "Sidang",
-                    "image": "/images/ChatGPT Image Feb 1, 2026, 01_07_35 PM.png"
-                },
-                {
-                    "type": "Event",
                     "title": "Charlemagne Cup 2025",
                     "date": "13-14 January 2026",
                     "location": "Online",
