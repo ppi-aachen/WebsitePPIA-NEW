@@ -28,7 +28,7 @@ export default function Sejarah() {
                   <h2 className="heading-2 mb-6" data-sb-field-path="title">{section.title}</h2>
                 )}
                 <div className="body-text space-y-6 text-lg text-gray-700 leading-relaxed text-justify">
-                  <div className={`flex flex-col ${section.imagePosition === 'left' ? 'md:flex-row-reverse' : 'md:flex-row'} gap-8 items-center`}>
+                  <div className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row-reverse' : 'md:flex-row'} gap-8 items-center`}>
 
                     {/* Content Side */}
                     <div className="flex-1 space-y-6" data-sb-field-path="content">
