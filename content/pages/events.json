@@ -307,6 +307,13 @@
                     "location": "Humboldt-Haus, Aachen",
                     "description": "Welcoming party untuk Ersti. Games, snack gratis, dan info seputar Aachen.",
                     "image": "/images/events/aachener-101.jpg"
+                },
+                {
+                    "type": "Event",
+                    "title": "SPA",
+                    "date": "27 Februari 2025",
+                    "location": "Super-C",
+                    "description": "Sidang"
                 }
             ]
         }
