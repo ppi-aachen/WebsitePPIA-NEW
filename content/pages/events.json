@@ -53,6 +53,13 @@
                     "image": "/images/events/book-club-3.jpg"
                 },
                 {
+                    "type": "Event",
+                    "title": "SPA",
+                    "date": "27 Februari 2025",
+                    "location": "Super-C",
+                    "description": "Sidang"
+                },
+                {
                     "title": "The Last Lullaby (Halloween Party)",
                     "date": "1 November 2025",
                     "time": "16:00 – 03:00 CEST",
@@ -129,13 +136,6 @@
                     "linkText": "Daftar Book Club",
                     "image": "/images/events/book-club-1.jpg",
                     "longDescription": "Hallo Aachener 👋🏻\nPPI Aachen kali ini mengadakan diskusi literasi dengan nama AACHEN BOOK CLUB 📚!!\n\nIni menjadi kesempatan untuk sharing buku-buku yang telah kalian baca, terutama arti lebih mendalam yang terkandung di dalamnya. Pantau terus IG kami, so you don’t miss out the next episode dan bisa mengenal hasil dari diskusi kami yang seru ini!!\n\nAs they say “Today a reader, tomorrow a leader!”\n"
-                },
-                {
-                    "type": "Event",
-                    "title": "SPA",
-                    "date": "27 Februari 2025",
-                    "location": "Super-C",
-                    "description": "Sidang"
                 },
                 {
                     "title": "Sidang Perwakilan Anggota (SPA) 2025",
