@@ -307,6 +307,13 @@
                     "location": "Humboldt-Haus, Aachen",
                     "description": "Welcoming party untuk Ersti. Games, snack gratis, dan info seputar Aachen.",
                     "image": "/images/events/aachener-101.jpg"
+                },
+                {
+                    "type": "Event",
+                    "title": "TEST",
+                    "date": "1 Januari 2026",
+                    "location": "Jakarta",
+                    "description": "Makan2 bos"
                 }
             ]
         }
