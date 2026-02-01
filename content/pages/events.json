@@ -168,6 +168,14 @@
                     "longDescription": "Hallo Aachener! 🔥🔥\n\nBingung tanggal 11 januari mau ngapain?\nMending daftar fun match Mobile legends dan Valorant yang diadakan oleh PPI Aachen:\n\nHari, tanggal: Sabtu, 11 Januari 2025\nWaktu: 13.00 (Mobile legends), 17.30 (Valorant)\nBatas Pendaftaran: Kamis, 9 Januari 2025\nBiaya Kaution: 5€/tim\n\nPendaftaran GRATIS, dan pastinya ada hadiah menarik untuk para pemenang! Serunya lagi, pertandingan ini akan disiarkan langsung di YouTube PPI Aachen. Jangan sampai ketinggalan, ya!\n\nSooo tunggu apalagi segera daftarkan tim kalian sekarang jugaa di link dibawah ini\n👇👇👇\n"
                 },
                 {
+                    "title": "Eksil Movie Screening",
+                    "date": "8 September 2024",
+                    "location": "Humboldt-Haus",
+                    "description": "Screening of the movie Eksil.",
+                    "image": "/images/events/eksil-screening.jpg",
+                    "time": "15:00 - 20:00"
+                },
+                {
                     "title": "Malam 17an 2024",
                     "date": "18 Agustus 2024",
                     "time": "11:00-19:00",
@@ -176,14 +184,6 @@
                     "link": "https://bit.ly/Foto17an2024",
                     "linkText": "Lihat Dokumentasi",
                     "image": "/images/events/17an.jpg"
-                },
-                {
-                    "title": "Eksil Movie Screening",
-                    "date": "8 September 2024",
-                    "location": "Humboldt-Haus",
-                    "description": "Screening of the movie Eksil.",
-                    "image": "/images/events/eksil-screening.jpg",
-                    "time": "15:00 - 20:00"
                 },
                 {
                     "title": "Indonesian Evening x INCAS",
