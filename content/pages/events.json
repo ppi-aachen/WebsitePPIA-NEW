@@ -310,7 +310,8 @@
                     "date": "30 July 2024",
                     "location": "Unknown",
                     "description": "Cultural evening collaboration with INCAS.",
-                    "image": "/images/events/indonesian-evening.jpg"
+                    "image": "/images/events/indonesian-evening.jpg",
+                    "time": "20:00 - 22:00"
                 }
             ]
         }
