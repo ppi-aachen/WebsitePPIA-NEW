@@ -20,7 +20,59 @@ export default function Events() {
 
   const heroSection = eventsData.sections.find(s => s.type === 'Hero')
   const eventGrid = eventsData.sections.find(s => s.type === 'EventGrid')
+  const parseDate = (dateStr: string): Date => {
+    // Remove "Deadline: " prefix if present
+    const cleanDateStr = dateStr.replace(/deadline:\s*/i, '');
+
+    // Check for "Month - Month Year" format (e.g. "Jan - Feb 2025")
+    const monthRangeMatch = cleanDateStr.match(/^([A-Za-z]+)\s*-\s*([A-Za-z]+)\s+(\d{4})$/);
+    if (monthRangeMatch) {
+      // Use the first month and year
+      const monthName = monthRangeMatch[1];
+      const year = monthRangeMatch[3];
+      return parseDate(`1 ${monthName} ${year}`);
+    }
+
+    // Extract day, month, year
+    // Supports: "13-14 January 2026", "5 Desember 2025", "11 Oktober 2025"
+    const parts = cleanDateStr.match(/(\d+)(?:-\d+)?\s+([A-Za-z]+)\s+(\d{4})/);
+
+    if (parts) {
+      const day = parseInt(parts[1], 10);
+      const monthName = parts[2].toLowerCase();
+      const year = parseInt(parts[3], 10);
+
+      const monthMap: { [key: string]: number } = {
+        'januari': 0, 'january': 0, 'jan': 0,
+        'februari': 1, 'february': 1, 'feb': 1,
+        'maret': 2, 'march': 2, 'mar': 2,
+        'april': 3, 'apr': 3,
+        'mei': 4, 'may': 4,
+        'juni': 5, 'june': 5, 'jun': 5,
+        'juli': 6, 'july': 6, 'jul': 6,
+        'agustus': 7, 'august': 7, 'aug': 7,
+        'september': 8, 'sep': 8,
+        'oktober': 9, 'october': 9, 'okt': 9, 'oct': 9,
+        'november': 10, 'nov': 10,
+        'desember': 11, 'december': 11, 'des': 11, 'dec': 11
+      };
+
+      if (monthMap.hasOwnProperty(monthName)) {
+        return new Date(year, monthMap[monthName], day);
+      }
+    }
+
+    // Fallback
+    return new Date(dateStr);
+  }
+
   const events = (eventGrid?.events || []) as Event[]
+  // Sort events by date descending (newest first)
+  const sortedEvents = [...events].sort((a, b) => {
+    const dateA = parseDate(a.date);
+    const dateB = parseDate(b.date);
+    return dateB.getTime() - dateA.getTime();
+  });
   const eventGridIndex = eventsData.sections.findIndex(s => s.type === 'EventGrid')
 
 
@@ -38,7 +90,7 @@ export default function Events() {
             <h2 className="heading-2 mb-8" data-sb-field-path="title">{eventGrid?.title}</h2>
 
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3" data-sb-field-path="events">
-              {events.map((event, index) => {
+              {sortedEvents.map((event, index) => {
 
                 return (
                   <div
