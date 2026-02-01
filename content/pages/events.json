@@ -195,6 +195,15 @@
                     "time": "15:00 - selesai"
                 },
                 {
+                    "title": "Blind Date",
+                    "date": "24 November 2024",
+                    "time": "15:00 - selesai",
+                    "location": "Zoom Meeting",
+                    "description": "Virtual Blind Date bareng PPI Munich buat kamu yang lagi nyari The One!",
+                    "tag": "Past Event",
+                    "image": "/images/events/blind-date.jpg"
+                },
+                {
                     "title": "Eksil Movie Screening",
                     "date": "8 September 2024",
                     "location": "Humboldt-Haus",
@@ -295,15 +304,6 @@
                     "location": "Online",
                     "description": "Periode pendaftaran ketua PPI Aachen 2025/2026.",
                     "image": "/images/events/open-registration-chair.jpg"
-                },
-                {
-                    "title": "Blind Date",
-                    "date": "24 November 2024",
-                    "time": "15:00 - selesai",
-                    "location": "Zoom Meeting",
-                    "description": "Virtual Blind Date bareng PPI Munich buat kamu yang lagi nyari The One!",
-                    "tag": "Past Event",
-                    "image": "/images/events/blind-date.jpg"
                 },
                 {
                     "title": "PPIA x INCAS Indonesian Evening",
