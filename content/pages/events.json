@@ -14,6 +14,13 @@
             "events": [
                 {
                     "type": "Event",
+                    "title": "SPA",
+                    "date": "27 Februari 2025",
+                    "location": "Super-C",
+                    "description": "Sidang"
+                },
+                {
+                    "type": "Event",
                     "title": "Charlemagne Cup 2025",
                     "date": "13-14 January 2026",
                     "location": "Online",
@@ -51,13 +58,6 @@
                     "location": "Humboldt Haus, Lantai 2 (2. OG)",
                     "description": "Membahas dengan mendalam mengenai Madilog, sebuah buku karya Tan Malaka.",
                     "image": "/images/events/book-club-3.jpg"
-                },
-                {
-                    "type": "Event",
-                    "title": "SPA",
-                    "date": "27 Februari 2025",
-                    "location": "Super-C",
-                    "description": "Sidang"
                 },
                 {
                     "title": "The Last Lullaby (Halloween Party)",
