@@ -212,6 +212,14 @@
                     "image": "/images/events/ngabuburit-2024.jpg"
                 },
                 {
+                    "title": "Eksil Movie Screening",
+                    "date": "8 September 2024",
+                    "location": "Humboldt-Haus",
+                    "description": "Screening of the movie Eksil.",
+                    "image": "/images/events/eksil-screening.jpg",
+                    "time": "15:00 - 20:00"
+                },
+                {
                     "title": "Sidang Perwakilan Anggota 2024",
                     "date": "9 Maret 2024",
                     "time": "17:00 CET",
@@ -296,14 +304,6 @@
                     "image": "/images/events/pesta-sapa.jpg",
                     "longDescription": "Hey Aacheners👏\ntak terasa semester baru sudah dimulai and we are welcoming you Erstis to Aachen😣❤️\nuntuk menyambut para mahasiswa baru dan tentu saja penghuni Aachen, we present to you: PESTA SAPA 🥳🥳\n\nkapan dan dimana??\n📆 Sabtu, 19 Oktober 2024\n📍 Humboldt Haus\n🕥 Open Gate jam 15:00\n🔗 http\\://bit.ly/pestasapa\n\nKita juga menawarkan snack-snack Indo yang pastinya menarik seperti: tumpeng mini, piscok, dadar gulung, risol mayo, piscok, brownies dan banyak minuman” lainnya! Jangan lupa check out Bundle Menu nya juga ya guys!\n\nPendaftaran akan ditutup pada Kamis, 17.10.2024\n\nSee you there👋👋👋\n\n",
                     "time": "15:00 - selesai"
-                },
-                {
-                    "title": "Eksil Movie Screening",
-                    "date": "8 September 2024",
-                    "location": "Humboldt-Haus",
-                    "description": "Screening of the movie Eksil.",
-                    "image": "/images/events/eksil-screening.jpg",
-                    "time": "15:00 - 20:00"
                 },
                 {
                     "title": "PPIA x INCAS Indonesian Evening",
