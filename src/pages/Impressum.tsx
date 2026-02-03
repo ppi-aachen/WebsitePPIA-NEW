@@ -17,7 +17,7 @@ export default function Impressum() {
                 subtitle={heroSection?.subtitle || "Impressum & Datenschutzerklärung"}
             />
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div className="px-12 md:px-[48px] py-12">
+                <div className="px-4 md:px-[48px] py-12">
                     {/* Content Wrapper to maintain readability if needed, or just let it flow 7xl */}
                     <div className="space-y-12">
 

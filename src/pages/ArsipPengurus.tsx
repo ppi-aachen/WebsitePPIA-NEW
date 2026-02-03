@@ -38,7 +38,7 @@ export default function ArsipPengurus() {
         subtitle={heroSection?.subtitle || "Past Cabinet Archive"}
       />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="px-12 md:px-[48px] py-12">
+        <div className="px-4 md:px-[48px] py-12">
           {/* Daftar Ketua Section - Moved to Top */}
           <section className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 mb-12" data-sb-field-path={`sections.${cabinetArchiveIndex}`}>
             <h2 className="heading-2 mb-8 text-center" data-sb-field-path="pastChairs">Daftar Ketua PPI Aachen</h2>

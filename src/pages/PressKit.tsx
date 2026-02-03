@@ -19,10 +19,11 @@ export default function PressKit() {
   const logoGridIndex = pressKitData.sections.findIndex(s => s.type === 'LogoGrid')
 
   return (
-    <div data-sb-object-id="content/pages/press-kit.json">
+    <div data-sb-object-id="content/pages/press-kit.json" className="mb-24">
       <HeroHeader title={heroSection?.title || "Press Kit"} subtitle={heroSection?.subtitle || "Resources & Assets"} />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="px-12 md:px-[48px] py-12">
+        <div className="px-4 md:px-[48px] py-12">
+          <h2 className="heading-2 mb-8">Press Kit</h2>
 
           {/* Header Section */}
           {headerSection && (

@@ -1,5 +1,5 @@
 import HeroHeader from '../components/HeroHeader'
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import communitiesData from '../../content/pages/communities.json'
 
 interface CommunityLink {
@@ -26,19 +26,32 @@ export default function Communities() {
   const spotlightCommunity = spotlightSection?.community as Community | undefined;
   const communities = (gridSection?.communities || []) as Community[];
 
+  const [selectedCategory, setSelectedCategory] = useState<string>('All');
+
+  const uniqueCategories = useMemo(() => {
+    const categories = new Set(communities.map(c => c.category).filter(Boolean) as string[]);
+    return ['All', ...Array.from(categories)];
+  }, [communities]);
+
+  const filteredCommunities = useMemo(() => {
+    const communitiesWithIndex = communities.map((c, idx) => ({ ...c, originalIndex: idx }));
+    if (selectedCategory === 'All') return communitiesWithIndex;
+    return communitiesWithIndex.filter(c => c.category === selectedCategory);
+  }, [communities, selectedCategory]);
+
   // Helper to find original index for annotations
   const spotlightSectionIndex = communitiesData.sections.findIndex(s => s.type === 'CommunitySpotlight');
   const gridSectionIndex = communitiesData.sections.findIndex(s => s.type === 'CommunityGrid');
 
   return (
-    <div className="bg-gray-50 min-h-screen" data-sb-object-id="content/pages/communities.json">
+    <div className="bg-gray-50 min-h-screen mb-24" data-sb-object-id="content/pages/communities.json">
       <HeroHeader
         title={heroSection?.title || "Communities"}
         subtitle={heroSection?.subtitle || "Komunitas Indonesia di Aachen"}
       />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="px-12 md:px-[48px] py-12">
+        <div className="px-4 md:px-[48px] py-12">
 
           {/* Spotlight Section */}
           {spotlightCommunity && (
@@ -94,13 +107,31 @@ export default function Communities() {
               <div className="h-1 bg-gray-200 flex-grow ml-8 rounded-full"></div>
             </div>
 
+            {/* Filter Buttons */}
+            <div className="flex flex-wrap gap-2 mb-8">
+              {uniqueCategories.map((category) => (
+                <button
+                  key={category}
+                  onClick={() => setSelectedCategory(category)}
+                  className={`
+                    px-4 py-2 rounded-full text-sm font-medium transition-all duration-200
+                    ${selectedCategory === category
+                      ? 'bg-[#0161bf] text-white shadow-md'
+                      : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'}
+                  `}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-sb-field-path="communities">
-              {communities.map((comm, index) => (
+              {filteredCommunities.map((comm) => (
                 <div
-                  key={index}
+                  key={comm.originalIndex}
                   className="bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 group flex flex-col cursor-pointer"
                   onClick={() => setSelectedCommunity(comm)}
-                  data-sb-field-path={`.${index}`}
+                  data-sb-field-path={`.${comm.originalIndex}`}
                 >
                   <div className="h-48 relative overflow-hidden bg-gray-200">
                     <div className="absolute top-4 right-4 z-10">

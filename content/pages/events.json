@@ -10,7 +10,7 @@
         },
         {
             "type": "EventGrid",
-            "title": "All Events",
+            "title": "Events",
             "events": [
                 {
                     "type": "Event",

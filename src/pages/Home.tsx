@@ -44,7 +44,7 @@ export default function Home() {
       {/* Section 1: Carousel + Linktree (Blue) */}
       <div className="bg-[#0161bf]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="px-12 md:px-[48px] py-12">
+          <div className="px-4 md:px-[48px] py-12">
             <Carousel slides={slides} />
             <div className="flex justify-center mt-12 mb-4">
               <a
@@ -67,9 +67,9 @@ export default function Home() {
       {aboutSection && (
         <div className="bg-white" data-sb-field-path="sections.1">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="px-12 md:px-[48px] pt-6 pb-12">
+            <div className="px-4 md:px-[48px] pt-6 pb-12">
               <section className="max-w-none">
-                <h2 className="heading-2 text-center" data-sb-field-path="title">{aboutSection.title}</h2>
+                <h2 className="heading-2-home text-center" data-sb-field-path="title">{aboutSection.title}</h2>
                 <div className="body-text space-y-6 text-lg text-gray-700 leading-relaxed text-justify" data-sb-field-path="content">
                   {renderContent(aboutSection.content || '')}
                 </div>
@@ -83,11 +83,11 @@ export default function Home() {
       {historySection && (
         <div className="bg-[#0161bf] text-white" data-sb-field-path="sections.2">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="px-12 md:px-[48px] pt-6 pb-12">
+            <div className="px-4 md:px-[48px] pt-6 pb-12">
               <section className="max-w-none">
                 <div className="flex flex-col md:flex-row gap-8 items-center">
                   <div className="body-text space-y-6 text-lg leading-relaxed text-white flex-1 text-justify">
-                    <h2 className="heading-2 text-white text-center" data-sb-field-path="title">{historySection.title}</h2>
+                    <h2 className="heading-2-home text-white text-center" data-sb-field-path="title">{historySection.title}</h2>
                     <div data-sb-field-path="content">
                       {renderContent(historySection.content || '')}
                     </div>
@@ -111,7 +111,7 @@ export default function Home() {
       {logoSection && (
         <div className="bg-white" data-sb-field-path="sections.3">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="px-12 md:px-[48px] pt-6 pb-12">
+            <div className="px-4 md:px-[48px] pt-6 pb-12">
               <section className="max-w-none">
                 <div className="flex flex-col md:flex-row gap-8 items-center">
                   <div className="w-full md:w-1/3 flex-shrink-0">
@@ -123,7 +123,7 @@ export default function Home() {
                     />
                   </div>
                   <div className="body-text space-y-6 text-lg text-gray-700 leading-relaxed flex-1 text-justify">
-                    <h2 className="heading-2 text-center" data-sb-field-path="title">{logoSection.title}</h2>
+                    <h2 className="heading-2-home text-center" data-sb-field-path="title">{logoSection.title}</h2>
                     <div data-sb-field-path="content">
                       {renderContent(logoSection.content || '')}
                     </div>
@@ -138,9 +138,9 @@ export default function Home() {
       {/* Section 5: Aachen für Dummies (Blue) */}
       <div className="bg-[#0161bf] text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="px-12 md:px-[48px] pt-6 pb-12">
+          <div className="px-4 md:px-[48px] pt-6 pb-12">
             <section className="max-w-none">
-              <h2 className="heading-2 text-white text-center">Aachen für Dummies</h2>
+              <h2 className="heading-2-home text-white text-center">Aachen für Dummies</h2>
 
               <div className="my-8 flex justify-center">
                 <div
@@ -187,9 +187,9 @@ export default function Home() {
       {petaSection && (
         <div className="bg-white" data-sb-field-path="sections.4">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="px-12 md:px-[48px] pt-6 pb-12">
+            <div className="px-4 md:px-[48px] pt-6 pb-12">
               <section className="max-w-none">
-                <h2 className="heading-2 text-center" data-sb-field-path="title">{petaSection.title}</h2>
+                <h2 className="heading-2-home text-center" data-sb-field-path="title">{petaSection.title}</h2>
                 <div className="body-text space-y-6 text-lg text-gray-700 leading-relaxed">
                   <div className="mt-8 flex justify-center">
                     <img

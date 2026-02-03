@@ -23,7 +23,7 @@ export default function Kepengurusan() {
         subtitle={heroSection?.subtitle || "Susunan Kepengurusan PPI Aachen 2025/2026"}
       />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="px-12 md:px-[48px] py-12">
+        <div className="px-4 md:px-[48px] py-12">
 
           {/* Core Leadership */}
           {executiveBoard && (

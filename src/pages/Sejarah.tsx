@@ -16,16 +16,22 @@ export default function Sejarah() {
         title={heroSection?.title || "Sejarah"}
         subtitle={heroSection?.subtitle || "History of PPI Aachen"}
       />
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="px-12 md:px-[48px] py-12">
-          {contentSections.map((section, index) => {
-            // Calculate the actual index in the sections array for the annotation
-            const dataIndex = sejarahData.sections.indexOf(section);
 
-            return (
-              <section key={index} className="mb-12" data-sb-field-path={`sections.${dataIndex}`}>
+      {contentSections.map((section, index) => {
+        // Calculate the actual index in the sections array for the annotation
+        const dataIndex = sejarahData.sections.indexOf(section);
+        const isAlternate = index % 2 !== 0;
+
+        return (
+          <section
+            key={index}
+            className={`py-3 md:py-6 ${isAlternate ? 'bg-[#e5e5e5]' : 'bg-white'}`}
+            data-sb-field-path={`sections.${dataIndex}`}
+          >
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+              <div className="px-4 md:px-[48px]">
                 {section.title && (
-                  <h2 className="heading-2 mb-6" data-sb-field-path="title">{section.title}</h2>
+                  <h2 className="heading-2 mb-8 md:mb-12" data-sb-field-path="title">{section.title}</h2>
                 )}
                 <div className="body-text space-y-6 text-lg text-gray-700 leading-relaxed text-justify">
                   <div className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row-reverse' : 'md:flex-row'} gap-8 items-center`}>
@@ -53,11 +59,14 @@ export default function Sejarah() {
                     )}
                   </div>
                 </div>
-              </section>
-            );
-          })}
-        </div>
-      </div>
+              </div>
+            </div>
+          </section>
+        );
+      })}
+
+      {/* Colored Bottom Margin/Spacer */}
+      <div className="h-24 bg-[#e5e5e5]"></div>
     </div>
   )
 }

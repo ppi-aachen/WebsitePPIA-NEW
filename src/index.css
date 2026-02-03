@@ -53,6 +53,14 @@
   }
 
   .heading-2 {
+    @apply font-sans font-bold text-black;
+    font-size: 24pt;
+    line-height: 1.4;
+    margin-top: 20px;
+  }
+
+  /* Specific Home Page Heading Style (Original) */
+  .heading-2-home {
     @apply font-sans font-normal text-primary;
     font-size: 19pt;
     line-height: 1.4;
@@ -61,12 +69,20 @@
 
   @media (max-width: 767px) {
     .heading-2 {
+      font-size: 22pt;
+    }
+
+    .heading-2-home {
       font-size: 17pt;
     }
   }
 
   @media (max-width: 479px) {
     .heading-2 {
+      font-size: 20pt;
+    }
+
+    .heading-2-home {
       font-size: 15pt;
     }
   }

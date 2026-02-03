@@ -25,7 +25,7 @@ export default function Carousel({
     }, [autoSlide, autoSlideInterval, curr, slides.length]) // check dependencies
 
     return (
-        <div className="overflow-hidden relative group h-[400px] md:h-[600px] w-full">
+        <div className="overflow-hidden relative group w-full aspect-[16/9]">
             <div
                 className="flex transition-transform ease-out duration-500 h-full"
                 style={{ transform: `translateX(-${curr * 100}%)` }}
@@ -62,15 +62,33 @@ export default function Carousel({
 
             <div className="absolute bottom-4 right-0 left-0">
                 <div className="flex items-center justify-center gap-2">
-                    {slides.map((_, i) => (
-                        <div
-                            key={i}
-                            className={`
-              transition-all w-3 h-3 bg-white rounded-full
-              ${curr === i ? "p-2" : "bg-opacity-50"}
-            `}
-                        />
-                    ))}
+                    {(() => {
+                        const maxDots = 7
+                        let startDot = 0
+                        if (slides.length > maxDots) {
+                            startDot = Math.max(0, Math.min(curr - Math.floor(maxDots / 2), slides.length - maxDots))
+                        }
+
+                        // Create array of indices to render
+                        const visibleDots = Array.from({ length: Math.min(slides.length, maxDots) }, (_, i) => startDot + i)
+
+                        return visibleDots.map((index) => {
+                            const isLeftEdge = index === startDot && startDot > 0
+                            const isRightEdge = index === startDot + visibleDots.length - 1 && index < slides.length - 1
+                            const isSmall = isLeftEdge || isRightEdge
+
+                            return (
+                                <div
+                                    key={index}
+                                    className={`
+                                transition-all bg-white rounded-full
+                                ${isSmall ? "w-1.5 h-1.5 opacity-40" : "w-3 h-3"}
+                                ${curr === index ? "p-2 bg-opacity-100" : "bg-opacity-50"}
+                            `}
+                                />
+                            )
+                        })
+                    })()}
                 </div>
             </div>
         </div>

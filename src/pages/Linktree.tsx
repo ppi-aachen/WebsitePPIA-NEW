@@ -13,7 +13,7 @@ export default function Linktree() {
         subtitle={heroSection?.subtitle || "PPI Aachen Links"}
       />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="px-12 md:px-[48px] py-12">
+        <div className="px-4 md:px-[48px] py-12">
           {contentSection && (
             <section className="mb-12" data-sb-field-path={`sections.${contentSectionIndex}`}>
               <h2 className="heading-2" data-sb-field-path="title">{contentSection.title}</h2>

@@ -13,14 +13,17 @@ export default function Spa() {
         subtitle={heroSection?.subtitle || "Sidang Perwakilan Anggota PPI Aachen"}
       />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="px-12 md:px-[48px] py-12">
+        <div className="px-4 md:px-[48px] py-12">
           {contentSection && (
-            <div
-              className="bg-white p-8 md:p-12 rounded-2xl shadow-sm border border-gray-100 prose prose-lg max-w-none text-gray-700"
-              data-sb-field-path={`sections.${contentSectionIndex}`}
-            >
-              <div data-sb-field-path="content" dangerouslySetInnerHTML={{ __html: contentSection.content }} />
-            </div>
+            <>
+              <h2 className="heading-2 mb-8">Sidang Perwakilan Anggota PPI Aachen</h2>
+              <div
+                className="bg-white p-8 md:p-12 rounded-2xl shadow-sm border border-gray-100 prose prose-lg max-w-none text-gray-700"
+                data-sb-field-path={`sections.${contentSectionIndex}`}
+              >
+                <div data-sb-field-path="content" dangerouslySetInnerHTML={{ __html: contentSection.content }} />
+              </div>
+            </>
           )}
         </div>
       </div>

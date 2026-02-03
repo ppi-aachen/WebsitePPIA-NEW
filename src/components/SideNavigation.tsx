@@ -84,7 +84,7 @@ export default function SideNavigation({ currentPath }: SideNavigationProps) {
 
       {/* Top Navigation Bar (Desktop) */}
       <nav
-        className="hidden desktop:flex desktop:fixed desktop:top-0 desktop:left-0 desktop:right-0 desktop:bg-white desktop:z-40 desktop:shadow-md h-16"
+        className="hidden desktop:flex desktop:fixed desktop:top-0 desktop:left-0 desktop:right-0 desktop:bg-white desktop:z-40 desktop:shadow-md h-12"
         role="navigation"
       >
         <div className="w-full flex items-center justify-between px-8">
@@ -93,7 +93,7 @@ export default function SideNavigation({ currentPath }: SideNavigationProps) {
               <img
                 src="/logo.png"
                 alt="PPI Aachen"
-                className="h-12 object-contain"
+                className="h-10 object-contain"
                 onError={(e) => {
                   // Fallback to text if image doesn't load
                   const target = e.target as HTMLImageElement;
@@ -121,12 +121,12 @@ export default function SideNavigation({ currentPath }: SideNavigationProps) {
                   <>
                     <button
                       className={`
-                          px-4 py-3
-                          text-dark text-[15pt] font-light
+                          px-2 py-2
+                          text-dark text-[12pt]
                         transition-colors duration-200
                         hover:text-primary-light
                         flex items-center gap-1
-                        ${isActive(item.path) ? 'text-primary-light' : ''}
+                        ${isActive(item.path) ? 'text-black font-bold' : 'font-light'}
                       `}
                     >
                       {item.label}
@@ -142,7 +142,7 @@ export default function SideNavigation({ currentPath }: SideNavigationProps) {
                     </button>
                     {hoveredGroup === item.path && (
                       <div
-                        className="absolute top-full left-0 bg-white shadow-lg min-w-[200px] py-2"
+                        className="absolute top-full right-0 bg-white shadow-lg min-w-[200px] py-2"
                       >
                         {item.children.map((child) => (
                           <Link
@@ -150,10 +150,10 @@ export default function SideNavigation({ currentPath }: SideNavigationProps) {
                             to={child.path}
                             className={`
                               block px-4 py-2
-                              text-dark text-[12pt] font-light
+                              text-dark text-[11pt]
                               transition-colors duration-200
                               hover:bg-primary/20 hover:text-primary-light
-                              ${isActive(child.path) ? 'text-primary-light font-normal bg-primary/10' : ''}
+                              ${isActive(child.path) ? 'text-black font-bold bg-primary/10' : 'font-light'}
                             `}
                           >
                             {child.label}
@@ -166,11 +166,11 @@ export default function SideNavigation({ currentPath }: SideNavigationProps) {
                   <Link
                     to={item.path}
                     className={`
-                      px-4 py-3
-                      text-dark text-[15pt] font-light
+                      px-2 py-2
+                      text-dark text-[12pt]
                       transition-colors duration-200
                       hover:text-primary-light
-                      ${isActive(item.path) ? 'text-primary-light' : ''}
+                      ${isActive(item.path) ? 'text-black font-bold' : 'font-light'}
                     `}
                   >
                     {item.label}
