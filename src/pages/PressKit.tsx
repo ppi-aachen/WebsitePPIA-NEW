@@ -81,10 +81,23 @@ export default function PressKit() {
                     <span className="bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-semibold text-gray-700 shadow-sm pointer-events-none">Preview</span>
                   </div>
                 </div>
-                <div className="p-4">
+                <div className="p-4 flex items-center justify-between gap-3">
                   <h3 className="text-sm font-medium text-gray-900 group-hover:text-[#0161bf] transition-colors line-clamp-2" title={logo.name} data-sb-field-path=".name">
                     {logo.name}
                   </h3>
+                  <a
+                    href={logo.image}
+                    download
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="p-2 text-gray-400 hover:text-[#0161bf] bg-gray-50 hover:bg-blue-50 rounded-full transition-colors flex-shrink-0"
+                    title={`Download ${logo.name}`}
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                  </a>
                 </div>
               </div>
             ))}
@@ -122,9 +135,24 @@ export default function PressKit() {
                   }}
                 />
               </div>
-              <div className="mt-4 px-2 pb-2 text-center">
-                <h3 className="font-bold text-gray-900 text-lg">{selectedLogo.name}</h3>
-                <p className="text-sm text-gray-500 mt-1">{selectedLogo.image.split('/').pop()}</p>
+              <div className="mt-4 px-4 pb-6 text-center flex flex-col items-center gap-4 w-full">
+                <div>
+                  <h3 className="font-bold text-gray-900 text-lg">{selectedLogo.name}</h3>
+                  <p className="text-sm text-gray-500 mt-1">{selectedLogo.image.split('/').pop()}</p>
+                </div>
+
+                <a
+                  href={selectedLogo.image}
+                  download
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-2.5 bg-[#0161bf] text-white font-medium rounded-lg hover:bg-[#004e9a] transition-all shadow-sm hover:shadow-md w-full sm:w-auto justify-center"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                  </svg>
+                  Download Asset
+                </a>
               </div>
             </div>
           </div>
