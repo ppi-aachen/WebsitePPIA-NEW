@@ -119,9 +119,19 @@
                 {
                     "name": "Adriano Ferane Gunawan",
                     "period": "2025-2026"
+                },
+                {
+                    "name": "Jason Louis Laksono",
+                    "period": "2026-2027"
                 }
             ],
             "cabinets": [
+                {
+                    "period": "2026/2027",
+                    "chair": "Jason Louis Laksono",
+                    "vice": "",
+                    "departments": []
+                },
                 {
                     "period": "2025/2026",
                     "chair": "Adriano Ferane Gunawan",
